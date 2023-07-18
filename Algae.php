@@ -30,7 +30,7 @@ if(isset($_POST['insert'])){
 
    
     $sql="INSERT INTO `algue` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
-    VALUES ('$botincal', 'sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$$desciption', '$picture_name')";
+    VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
     move_uploaded_file($picture_tempname,"upload/$picture_name");
     $result=mysqli_query($con,$sql);
 
@@ -50,7 +50,7 @@ if($result==1){
 
         <div class="container">
             <div class="jumbotron">
-           <div class="roboto"><h3 class="mb-5 text-success "> Add Algae</h3></div> 
+           <div class="roboto" ><h3 class="mb-5 text-success "> Add Algae</h3></div> 
             <form method="post" enctype="multipart/form-data">
             
                 <div class="row">
