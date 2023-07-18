@@ -54,8 +54,9 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-   
-    <title>Admin Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <title>Admin Login</title>
 </head>
 <body>
     <div class="box">

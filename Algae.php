@@ -50,10 +50,12 @@ if($result==1){
 
         <div class="container">
             <div class="jumbotron">
+           <div class="roboto"><h3 class="mb-5 text-success "> Add Algae</h3></div> 
             <form method="post" enctype="multipart/form-data">
+            
                 <div class="row">
                     <div class="col-lg-5">
-                        <h3> Add Algae</h3>
+                        
                             <div class="form-group">
                                 <label for="name">Botinical Name</label>
                                 <input type="text" class="form-control" id="name" name="botinical" placeholder="Botinical Name " required>
