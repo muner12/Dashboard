@@ -53,50 +53,83 @@ if(isset($_POST['add']))
 
 <div class="jumbotron">
        
+
+
+                        <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">add admin</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                    <div>
+                      
+                      <div class="form-group">
+                          <label for="name">Email</label>
+                          <input type="email" class="form-control" name="email" id="name" placeholder="email"  autocomplete="off" >
+                  
+                      </div>
+                      <div class="form-group">
+                          <label for="name">Contact</label>
+                          <input type="number" class="form-control" name="contact" id="name" placeholder="contact"  autocomplete="off" >
+                  
+                      </div>
+                      <div class="form-group">
+                          <label for="name">password</label>
+                          <input type="password" class="form-control" name="password" id="name" placeholder="password"  autocomplete="off" >
+                          
+                      </div>
+                      <div class="form-group">
+                          <label for="name">confirm password</label>
+                          <input type="password" class="form-control" name="cpassword" id="name" placeholder="password"  autocomplete="off" >
+                          
+                      </div>
+                      <div class="form-group">
+                          <label>Role </label>
+                          <select class="form-control" name="role" >
+                              <option>----Select</option>
+                              <option value="superAdmin">Super Admin</option>
+                              <option value="subAdmin">Sub Admin</option>
+                              <option value="user">User</option>
+                  
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          
+                          <input type="submit" class="btn btn-success" name="add" id="name" value="submit" >
+                          
+                      </div>
+                      </div>
+</form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                        <input type="submit" class="btn btn-success" name="add" id="name" value="submit" >
+                         
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <!-- model End -->
+
+
+
                 <p class="text-danger"></p>
                 <form method="post" class="center border"  >
+                    <div class="d-flex justify-content-end"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> add admin 
+</button></div>
                     <div class="row">
                     
-                    <div class="col-lg-4 col-md-6">
-                      
-                    <div class="form-group">
-                        <label for="name">Email</label>
-                        <input type="email" class="form-control" name="email" id="name" placeholder="email"  autocomplete="off" >
-
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Contact</label>
-                        <input type="number" class="form-control" name="contact" id="name" placeholder="contact"  autocomplete="off" >
-
-                    </div>
-                    <div class="form-group">
-                        <label for="name">password</label>
-                        <input type="password" class="form-control" name="password" id="name" placeholder="password"  autocomplete="off" >
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="name">confirm password</label>
-                        <input type="password" class="form-control" name="cpassword" id="name" placeholder="password"  autocomplete="off" >
-                        
-                    </div>
-                    <div class="form-group">
-                        <label>Role </label>
-                        <select class="form-control" name="role" >
-                            <option>----Select</option>
-                            <option value="superAdmin">Super Admin</option>
-                            <option value="subAdmin">Sub Admin</option>
-                            <option value="user">User</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        
-                        <input type="submit" class="btn btn-success" name="add" id="name" value="submit" >
-                        
-                    </div>
-                    </div>
+                
                     <!-- Table admin list -->
-                    <div class="col-lg-8 col-md-6">
+                    <div class="w-75 col-lg-12 col-md-6">
                         <div class="table-responsive">
                         <table class="table table-hover table-condensed">
                             <thead>
