@@ -7,6 +7,7 @@ if(isset($_POST['insert'])){
 //hellow by ak
     //kzdjfdksjfk
     //muner comment 
+    //muner commnet 2
   //hellow
     $botincal=$_POST['botinical'];
     $sysnonyams=$_POST['synonayms'];
