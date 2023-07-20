@@ -4,7 +4,7 @@
     $msg='';
 
 if(isset($_POST['insert'])){
-
+//hellow by ak
     
   //hellow
     $botincal=$_POST['botinical'];
