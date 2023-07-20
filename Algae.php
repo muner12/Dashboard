@@ -6,6 +6,7 @@
 if(isset($_POST['insert'])){
 //hellow by ak
     //kzdjfdksjfk
+    //muner comment 
   //hellow
     $botincal=$_POST['botinical'];
     $sysnonyams=$_POST['synonayms'];
