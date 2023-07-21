@@ -10,7 +10,7 @@ if(isset($_POST['insert'])){
     //muner commnet 2
     //sarazamin comment 3 
   //hellow
-    $botincal=$_POST['botinical'];
+    $botincal=$_POST['botanical'];
     $sysnonyams=$_POST['synonayms'];
     $family=$_POST['family'];
     $group=$_POST['group'];
@@ -60,7 +60,7 @@ if($result==1){
                     <div class="col-lg-5">
                         
                             <div class="form-group">
-                                <label for="name">Botinical Name</label>
+                                <label for="name">Botanical Name</label>
                                 <input type="text" class="form-control" id="name" name="botinical" placeholder="Botinical Name " required>
                             </div>
                             <div class="form-group">
