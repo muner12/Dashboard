@@ -1,4 +1,3 @@
-
 <?php
 
 require("header.php");
@@ -52,92 +51,124 @@ if(isset($_POST['add']))
 
 
 <div class="jumbotron">
-       
 
 
-                        <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">add admin</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">add admin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post">
-                    <div>
-                      
-                      <div class="form-group">
-                          <label for="name">Email</label>
-                          <input type="email" class="form-control" name="email" id="name" placeholder="email"  autocomplete="off" >
-                  
-                      </div>
-                      <div class="form-group">
-                          <label for="name">Contact</label>
-                          <input type="number" class="form-control" name="contact" id="name" placeholder="contact"  autocomplete="off" >
-                  
-                      </div>
-                      <div class="form-group">
-                          <label for="name">password</label>
-                          <input type="password" class="form-control" name="password" id="name" placeholder="password"  autocomplete="off" >
-                          
-                      </div>
-                      <div class="form-group">
-                          <label for="name">confirm password</label>
-                          <input type="password" class="form-control" name="cpassword" id="name" placeholder="password"  autocomplete="off" >
-                          
-                      </div>
-                      <div class="form-group">
-                          <label>Role </label>
-                          <select class="form-control" name="role" >
-                              <option>----Select</option>
-                              <option value="superAdmin">Super Admin</option>
-                              <option value="subAdmin">Sub Admin</option>
-                              <option value="user">User</option>
-                  
-                          </select>
-                      </div>
-                      <div class="form-group">
-                          
-                          <input type="submit" class="btn btn-success" name="add" id="name" value="submit" >
-                          
-                      </div>
-                      </div>
-</form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                        <input type="submit" class="btn btn-success" name="add" id="name" value="submit" >
-                         
-                    </div>
-                    </div>
+                    </button>
                 </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <div>
+
+                            <div class="form-group">
+                                <label for="name">Email</label>
+                                <input type="email" class="form-control" name="email" id="name" placeholder="email"
+                                    autocomplete="off">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Contact</label>
+                                <input type="number" class="form-control" name="contact" id="name" placeholder="contact"
+                                    autocomplete="off">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name">password</label>
+                                <input type="password" class="form-control" name="password" id="name"
+                                    placeholder="password" autocomplete="off">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="name">confirm password</label>
+                                <input type="password" class="form-control" name="cpassword" id="name"
+                                    placeholder="password" autocomplete="off">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Role </label>
+                                <select class="form-control" name="role">
+                                    <option>----Select</option>
+                                    <option value="superAdmin">Super Admin</option>
+                                    <option value="subAdmin">Sub Admin</option>
+                                    <option value="user">User</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+
+                                <input type="submit" class="btn btn-success" name="add" id="name" value="submit">
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <!-- model End -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model End -->
+    <!-- Delete Modal  -->
+    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Alert Box <span class=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are You Sure To Delete 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal End for Delete confirmation -->
 
 
 
-                <p class="text-danger"></p>
-                <form method="post" class="center border"  >
-                    <div class="d-flex justify-content-end"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i> add admin 
-</button></div>
-                    <div class="row">
-                    
-                
-                    <!-- Table admin list -->
-                    <div class="w-75 col-lg-12 col-md-6">
-                        <div class="table-responsive">
-                        <table class="table table-hover table-condensed">
-                            <thead>
-                                <th>id</th>
-                                <th>email</th>
-                                <th>contact</th>
-                                <th>Role</th>
-                                <th>Status</th>
+    <p class="text-danger"></p>
+    <form method="post" class="center border">
+        <div class="d-flex justify-content-start"><button type="button" class="btn btn-outline-success mb-1"
+                data-toggle="modal" data-target="#exampleModalCenter">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> add admin
+            </button></div>
+        <div class="row">
+
+
+            <!-- Table admin list -->
+            <div class="w-100 col-lg-12 col-md-12 col-sm-12 col-xm-12">
+                <div class="table-responsive">
+                    <table class="table table-hover table-condensed">
+                        <thead class="bg-secondary">
+                            <th>id</th>
+                            <th>email</th>
+                            <th>contact</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Delete</th>
                             <thead>
                             <tbody>
                                 <?php
@@ -147,45 +178,58 @@ if(isset($_POST['add']))
                                         echo "<tr>";
                                         echo "<td>".$row['id']."</td>";
                                         echo "<td>".$row['email']."</td>";
-                                        echo "<td>".$row['contact']."</td>";
+                                        echo "<td >".$row['contact']."</td>";
                                         if($row['role']=='superAdmin'){
-                                         echo "<td><button class='btn btn-sm btn-success'>".$row['role']."</button></td>";
+                                         echo "<td><button class='btn btn-sm btn-outline-success'>".$row['role']."</button></td>";
                                        
                                         }else if($row['role']=='subAdmin'){
-                                            echo "<td><button class='btn btn-sm btn-warning'>".$row['role']."</button></td>";
+                                            echo "<td><button class='btn btn-sm btn-outline-warning'>".$row['role']."</button></td>";
                                        
                                         }else{
-                                            echo "<td><button class='btn btn-sm btn-primary'>".$row['role']."</button></td>";
+                                            echo "<td><button class='btn btn-sm btn-outline-primary'>".$row['role']."</button></td>";
                                        
                                         }
 
                                         if($row['status']==0)
                                         {
-                                            echo "<td><a <a class='btn btn-danger' href='?id={$row['id']}&type=deActive'>DeActive</a></td>";
+                                            echo "<td><a class='btn btn-sm btn-outline-danger' href='?id={$row['id']}&type=deActive'><i class='fa fa-times' aria-hidden='true' data-toggle='tooltip' data-placement='right' title='DeActive'></i></a></td>";
                                         }
                                          
                                         else{
-                                        echo "<td><a class='btn btn-success' href='?id={$row['id']}&type=active'>Active</a></td>";
+                                        echo "<td><a class='btn btn-sm btn-outline-success' href='?id={$row['id']}&type=active'><i class='fa fa-check' aria-hidden='true' data-toggle='tooltip' data-placement='right' title='Active'></i></a></td>";
                                         }
+                                        echo "<td><input type='hidden' class='hidden' value='{$row['id']}'><a  class='test btn-sm btn-outline-danger' data-toggle='modal' data-target='#exampleModalCenter1'>
+                                        <i class='fa fa-trash' aria-hidden='true'></i></a> </td>";
                                     }
                                 ?>
                             </tbody>
-                                
-                        </table>
-                                </div>
-                    </div>
-                    </div>
-                   
-                </form>
-            
-        
-    </div>
+
+
+                    </table>
 
 
 
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+</div>
+
+
+
+<script>
+
+$('.test').click(function(){
+    let val=$('.hidden').val();
+    alert(val);
+})
+
+</script>
 
 <?php
 require("footer.php");
-?>
 
-   
+?>
