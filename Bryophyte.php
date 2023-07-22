@@ -7,7 +7,7 @@ if(isset($_POST['insert'])){
 
     
   
-    $botincal=$_POST['botinical'];
+    $botincal=$_POST['botanical'];
     $sysnonyams=$_POST['synonayms'];
     $family=$_POST['family'];
     $group=$_POST['group'];
