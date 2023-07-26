@@ -40,11 +40,18 @@ try {
     <br>
     Please note that this OTP code is valid for a limited time only and should not be shared with anyone. If you did not initiate this verification or suspect any unauthorized access to your account, please contact our support team immediately';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+    $sql="select * from user_otp where email='$email'";
+    $result=mysqli_query($con,$sql);
+    if(mysqli_num_rows($result)==0){
     $mail->send();
     echo 'yes';
     mysqli_query($con,"delete from user_otp where email='$email'");
     mysqli_query($con,"insert into user_otp(email,otp) values('$email',$otp)");
+    }else{
+        echo "OTP_SENDED";
+    }
+   
+    
 } catch (Exception $e) {
     echo "NO";
 }
