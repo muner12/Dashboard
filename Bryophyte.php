@@ -29,8 +29,8 @@ if(isset($_POST['insert'])){
     }else{
 
    
-    $sql="INSERT INTO `algue` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
-    VALUES ('$botincal', 'sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$$desciption', '$picture_name')";
+    $sql="INSERT INTO `bryophyte` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
+    VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
     move_uploaded_file($picture_tempname,"upload/$picture_name");
     $result=mysqli_query($con,$sql);
 
@@ -56,7 +56,7 @@ if($result==1){
                        
                             <div class="form-group">
                                 <label for="name">Botinical Name</label>
-                                <input type="text" class="form-control" id="name" name="botinical" placeholder="Botinical Name " required>
+                                <input type="text" class="form-control" id="name" name="botanical" placeholder="Botinical Name " required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Synonym</label>

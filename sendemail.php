@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+include("db_connection/connection.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
