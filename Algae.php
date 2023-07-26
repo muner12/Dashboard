@@ -4,12 +4,7 @@
     $msg='';
 
 if(isset($_POST['insert'])){
-//hellow by ak
-    //kzdjfdksjfk
-    //muner comment 
-    //muner commnet 2
-    //sarazamin comment 3 
-  //hellow
+
     $botincal=$_POST['botanical'];
     $sysnonyams=$_POST['synonayms'];
     $family=$_POST['family'];
@@ -61,7 +56,7 @@ if($result==1){
                         
                             <div class="form-group">
                                 <label for="name">Botanical Name</label>
-                                <input type="text" class="form-control" id="name" name="botinical" placeholder="Botinical Name " required>
+                                <input type="text" class="form-control" id="name" name="botanical" placeholder="botanical Name " required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Synonym</label>

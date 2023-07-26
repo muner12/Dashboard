@@ -1,5 +1,5 @@
 <?PHP
-include('config.php');
+include('db_connection/connection.php');
 
 $result=mysqli_query($con,"select * from user_otp where email='".$_POST['email']."'");
 
