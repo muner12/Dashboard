@@ -93,6 +93,10 @@ if(isset($_POST['updatePass']))
             <input style="border-radius:10px;" onclick="return val();" type="Button" id='sendotp' name="Send"
                 class="btn btn-success" value="send OTP" />
         </div>
+        <button id="spinner-btn" class="btn btn-success" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Sending OTP to Your Email...
+</button>
         <div class="form-group">
             <input style="border-radius:10px;" onclick="return val();" type="Button" id='checkuser' name="Send"
                 class="btn btn-outline-success" value="checkUser" />
@@ -101,6 +105,7 @@ if(isset($_POST['updatePass']))
             <input style="border-radius:10px;" onclick="return update_pass_val()" type="submit" id='updatePassword'
                 name="updatePass" class="btn btn-success" value="update" />
         </div>
+        <div id="otp-send-msg"></div>
     </form>
         </div>
     </div>
@@ -185,6 +190,7 @@ $('document').ready(function() {
     $('#cPassword').hide();
     $('#otp').hide();
     $('#updatePassword').hide();
+    $('#spinner-btn').hide();
     $('#checkuser').on('click', function() {
         var email = $('#email').val();
         $.ajax({
@@ -230,7 +236,9 @@ $('document').ready(function() {
 
     $("#sendotp").on('click', function() {
         var email = $('#email').val();
-        $("#sendotp").html("Sending...")
+      
+        $("#sendotp").hide();
+        $("#spinner-btn").show();
         $.ajax({
             url: "sendemail.php",
             type: "post",
@@ -238,8 +246,9 @@ $('document').ready(function() {
                 email: email
             },
             success: function(data) {
+                console.log(data);
                 if (data == "yes") {
-
+                    $("#spinner-btn").hide();
                     $("#otp_msg").html('An OTP sended to ' + email +
                         ",Please Confirm Your OTP!");
                     $("#rest_otp_msg").hide();
@@ -275,8 +284,16 @@ $('document').ready(function() {
 
                     };
 
-                } else {
-
+                } else if(data=="OTP_SENDED"){
+                   //$("#otp-send-msg").html("OTP Already sended to your email");
+                   $("#spinner-btn").hide();
+                    $("#otp_msg").html('An OTP sended to ' + email +
+                        ",Please Confirm Your OTP!");
+                    $("#rest_otp_msg").hide();
+                    $("#email_msg").hide();
+                    $('#otp').show();
+                    $('#email').hide();
+                    $("#sendotp").hide();
                 }
             }
 
