@@ -1419,7 +1419,7 @@ class PHPMailer
 
     /**
      * Tells whether IDNs (Internationalized Domain Names) are supported or not. This requires the
-     * `intl` and `mbstring` PHP extensions.
+     * `intl` and `mbstring` tensions.
      *
      * @return bool `true` if required functions for IDN support are present
      */
