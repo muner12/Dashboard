@@ -33,7 +33,7 @@ if(isset($_GET['type'])=='delete'){
 
     <thead>
     <?php
-    $sql="select * from algue";
+    $sql="select * from algue ";
     $result=mysqli_query($con,$sql);
     while($row=mysqli_fetch_assoc($result)){
         echo "<tr>
