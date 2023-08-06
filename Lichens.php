@@ -29,16 +29,16 @@ if(isset($_POST['insert'])){
    
     $sql="INSERT INTO `lichens` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-   
-    move_uploaded_file($picture_tempname,"upload/$picture_name");
+   echo $sql;
+    
     $result=mysqli_query($con,$sql);
 
 if($result==1){
     
-   
+    move_uploaded_file($picture_tempname,"upload/lichen/$picture_name");
     echo '<script>alert("1 recored inserted Successfully!")</script>';
 }else{
-    echo '<script>alert("Not inserted Successfully X!")</script>';
+    echo '<script>alert("Not inserted Successfully !")</script>';
 }
     }
 }
@@ -109,7 +109,8 @@ if($result==1){
                             </div>
                             <div class="form-group">
                                 <label for="name">Description</label>
-                                <input type="text" class="form-control" id="desc" name="Description" placeholder="Description" required>
+                                <input type="text" class="form-control" id="desc" name="Description" max="100" placeholder="Description" required autocomplete="off">
+                                <p id="desc_error " class="text-danger">Note:Description must be less than 100 charector</p>
                             </div>
                             <div class="form-group">
                                 <label for="name">Picture</label>
@@ -130,3 +131,5 @@ if($result==1){
     <?php
     
     require("footer.php")?>
+
+    
