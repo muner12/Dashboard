@@ -11,9 +11,8 @@ if(isset($_GET['type'])=='delete'){
     echo "<script>alert({$_GET['id']} is deleted)</script>";
   }
 }
-
+//skjdiaajid
 ?>
-
 
 
 
