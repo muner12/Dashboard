@@ -1,6 +1,7 @@
 
 <?php
 require("db_connection/connection.php");
+include("constants.php");
 session_start();
 if(!isset($_SESSION['user'])){
     
@@ -11,6 +12,12 @@ if(isset($_POST['logout'])){
     session_destroy();
     header("Location:index.php");
 }
+
+
+
+
+
+
 ?>
 
 <!doctype html>
@@ -46,17 +53,17 @@ if(isset($_POST['logout'])){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="dashboard.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo $ROOT."/dashboard.php"?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link">Link</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Add species
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="Algae.php">Algae</a>
+          <a class="dropdown-item" href=<?php echo $ROOT."/Algae.php"?>>Algae</a>
           <a class="dropdown-item" href="Fungi.php">Fungi</a>
           <a class="dropdown-item" href="Lichens.php">Lichens</a>
           <a class="dropdown-item" href="Bryophyte.php">Bryophyte</a>
