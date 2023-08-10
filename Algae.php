@@ -4,7 +4,7 @@
     $msg='';
 
 if(isset($_POST['insert'])){
-
+    
     $botincal=$_POST['botanical'];
     $sysnonyams=$_POST['synonayms'];
     $family=$_POST['family'];
@@ -16,7 +16,7 @@ if(isset($_POST['insert'])){
     $collection_number=$_POST['Collection_Number'];
     $year=$_POST['Year'];
     $upload_date=$_POST['upload_date'];
-    $desciption=$_POST['Description'];
+    $desciption=mysqli_real_escape_string($con,$_POST['Description']);
    
     $picture_name=$_FILES['Picture']['name'];
     $picture_tempname=$_FILES['Picture']['tmp_name'];
@@ -29,7 +29,7 @@ if(isset($_POST['insert'])){
    
     $sql="INSERT INTO `algue` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-    move_uploaded_file($picture_tempname,"upload/$picture_name");
+    move_uploaded_file($picture_tempname,"upload/algae/$picture_name");
     $result=mysqli_query($con,$sql);
 
 if($result==1){
