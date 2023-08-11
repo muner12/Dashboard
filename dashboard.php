@@ -2,20 +2,21 @@
 <?php
 
 require("header.php");
+
+$total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from algue"));
+
 ?>
 <div class="jumbotron">
     <div class="row d-flex justify-content-center">
-        
+
         <!-- Algae -->
-       
+
     <div class="card border-primary mb-3 col-lg-3 m-3" style="max-width: 18rem;">
   <div class="card-header">Algae</div>
   <div class="card-body">
+  <div class=" card-header d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-primary"><?PHP echo $total_algee['count']?></span></div>
     
-    <p class="card-text">
-    Algae is an informal term for a large and diverse group of photosynthetic, eukaryotic organisms. 
-    </p>
-    <div class="d-flex justify-content-left">
+    <div class="d-flex">
         <a class="btn btn-sm btn-success" href="tables/algae.php">View More</a>
     </div>
   </div>
@@ -91,6 +92,7 @@ require("header.php");
 <div>
     <!--  -->
 </div>
+
 
 
 <?php
