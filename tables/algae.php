@@ -21,8 +21,9 @@ if(isset($_GET['type']) && $_GET['type']=='delete'){
   <a class="btn btn-outline-success mb-1" href="../Algae.php">
                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
 </a></div>
-<table class="table table-hover table-condensed">
-    <thead>
+<div class="table-responsive-sm">
+<table class="table table-hover table-striped table-bordered">
+    <thead class="bg-secondary">
             <th>id</th>
             <th>Botinical Name</th>
             <th>synonyams</th>
@@ -32,7 +33,8 @@ if(isset($_GET['type']) && $_GET['type']=='delete'){
             <th>collector</th>
             <th>collection_number</th>
             <th>year</th>
-            <th>Actions</th>
+            <th>Image</th>
+            <th colspan="2" style="text-align:center">Actions</th>
            
 
     <thead>
@@ -51,8 +53,9 @@ if(isset($_GET['type']) && $_GET['type']=='delete'){
         <td>".$row['collector']."</td>
         <td>".$row['collection_number']."</td>
         <td>".$row['year']."</td>
-        <td> <a class='btn btn-danger' href='?id={$row['id']}&type=delete'>delete</a></td>
-        <td><a class='btn btn-primary' href='{$ROOT}/Algae.php?id={$row['id']}&type=update'>update</a></td>
+        <td><img width='50px' height='35px' src='../upload/algae/{$row['picture']}'></td>
+        <td> <a class='btn btn-sm btn-danger' href='?id={$row['id']}&type=delete'>Delete</a></td>
+        <td><a class='btn btn-sm btn-primary' href='{$ROOT}/Algae.php?id={$row['id']}&type=update'>Edit</a></td>
         </tr>";
     }
 
@@ -61,5 +64,5 @@ if(isset($_GET['type']) && $_GET['type']=='delete'){
 
 </tbody>
 </table>
-
+  </table>
 </div>

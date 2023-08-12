@@ -49,12 +49,74 @@ if($result==1){
 // --------------------------------------------------------------//
 
 //
+$required="required";
+if(isset($_GET['type']) && $_GET['type']=='update'){
+    $required="";
+}
+
 $fetch_one_row=[];
 if(isset($_GET['type']) && $_GET['type']=='update'){
     $fetch_one_row=mysqli_fetch_assoc(mysqli_query($con,"select * from algue where id={$_GET['id']}"));
    
    
 }
+$db_picture="";
+if(isset($fetch_one_row['picture'])){
+    $db_picture=$fetch_one_row['picture'];
+}
+
+
+//update
+
+
+if(isset($_POST['update'])){
+    
+    $botincal=$_POST['botanical'];
+    $sysnonyams=$_POST['synonayms'];
+    $family=$_POST['family'];
+    $group=$_POST['group'];
+   // $botincal=$_POST[''];
+    $country=$_POST['contry'];
+    $province=$_POST['province'];
+    $collector=$_POST['Collector'];
+    $collection_number=$_POST['Collection_Number'];
+    $year=$_POST['Year'];
+    $upload_date=$_POST['upload_date'];
+    $desciption=mysqli_real_escape_string($con,$_POST['Description']);
+   
+  
+    
+    if(isset($_FILES['Picture']['name']) && strlen($_FILES['Picture']['name'])>0){
+        $picture_name=$_FILES['Picture']['name'];
+        
+        $picture_tempname=$_FILES['Picture']['tmp_name'];
+        move_uploaded_file($picture_tempname,"upload/algae/$picture_name");
+    }else{
+        $picture_name=$db_picture;
+       
+        
+    }
+   
+    $sql="UPDATE `algue` SET `botanical` = '$botincal', `synonyams` = '$sysnonyams',
+     `family` = '$family', `group` = '$group', `country` = '$country',
+      `province` = '$province', `collector` = '$collector', `collection_number` = '$collection_number', `year` = '$year',
+       `upload_date` = '$upload_date', `description` = '$desciption',
+        `picture` = '$picture_name' WHERE `algue`.`id` = {$_GET['id']}";
+        $result=mysqli_query($con,$sql);
+
+       
+       
+
+if($result==1){
+    
+   
+    echo '<script>alert("1 recored updated Successfully!")</script>';
+    
+}
+    }
+
+
+
 
 
 
@@ -115,10 +177,7 @@ if(isset($_GET['type']) && $_GET['type']=='update'){
                             required>
                     </div>
 
-                    <div class="form-group">
-
-                        <input type="submit" class="btn btn-success" id="name" name="insert" value="insert">
-                    </div>
+                    
 
 
                 </div>
@@ -150,7 +209,7 @@ if(isset($_GET['type']) && $_GET['type']=='update'){
                     </div>
                     <div class="form-group">
                         <label for="name">Picture</label>
-                        <input type="file" class="form-control" id="name" name="Picture" placeholder="" required>
+                        <input  type="file" class="form-control" id="name" name="Picture" placeholder="" <?php echo $required;?>>
                     </div>
 
 
@@ -158,9 +217,33 @@ if(isset($_GET['type']) && $_GET['type']=='update'){
 
 
                 </div>
+                
 
             </div>
-        </form>
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-5">
+                <div class="form-group">
+                        <?PHP if(isset($_GET['type']) && $_GET['type']=='update'){?>
+                        <input type="submit" class="btn btn-success btn-block" id="name" name="update" value="update">
+                        <?PHP } else { ?>
+                            <input type="submit" class="btn btn-success btn-block" id="name" name="insert" value="insert">
+                       <?php }?>
+                    </div>
+      
+                </div>
+                <div class="col-lg-5">
+                    
+                    <?php
+                    if(isset($_GET['type']) && $_GET['type']=='update'){
+                        echo "<img width='100px' height='60px' src='upload/algae/{$fetch_one_row['picture']}'>";
+                    }
+                    ?>
+                    <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>
+
+                        </div>
+            </div>
+            
+             </form>
     </div>
 </div>
 

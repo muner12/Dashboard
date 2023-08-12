@@ -84,7 +84,7 @@ if(isset($_POST['logout'])){
         ?>
         <?PHP
         if($row['role']=='superAdmin'){?>
-        <a href="addAdmin.php" class="nav-link ">Add Admin</a>
+        <a href="<?PHP echo $ROOT."/addAdmin.php"?>" class="nav-link ">Add Admin</a>
         <?PHP }?>
       </li>
     </ul>

@@ -11,12 +11,12 @@ $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as co
 
         <!-- Algae -->
 
-    <div class="card border-primary mb-3 col-lg-3 m-3" style="max-width: 18rem;">
+    <div class="card border-primary mb-3 col-lg-3 m-3" style="max-width: 21rem;">
   <div class="card-header">Algae</div>
   <div class="card-body">
-  <div class=" card-header d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-primary"><?PHP echo $total_algee['count']?></span></div>
+  <div class=" d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-primary"><?PHP echo $total_algee['count']?></span></div>
     
-    <div class="d-flex">
+    <div class="d-flex mt-5">
         <a class="btn btn-sm btn-success" href="tables/algae.php">View More</a>
     </div>
   </div>
