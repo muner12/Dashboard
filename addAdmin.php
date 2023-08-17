@@ -128,13 +128,14 @@ if(isset($_POST['add']))
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Alert Box <span class=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Alert Box <span class=""><i
+                                class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Are You Sure To Delete 
+                    Are You Sure To Delete
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Close</button>
@@ -172,9 +173,31 @@ if(isset($_POST['add']))
                             <thead>
                             <tbody>
                                 <?php
-                                    $sql="select * from admin";
-                                    $list=mysqli_query($con,$sql);
-                                    while($row=mysqli_fetch_assoc($list)){
+                                    //define total number of results you want per page  
+    $results_per_page = 10;  
+  
+    //find the total number of results stored in the database  
+    $query = "select *from admin";  
+    $result = mysqli_query($con, $query);  
+    $number_of_result = mysqli_num_rows($result);  
+  
+    //determine the total number of pages available  
+    $number_of_page = ceil ($number_of_result / $results_per_page);  
+  
+    //determine which page number visitor is currently on  
+    if (!isset ($_GET['page']) || $_GET['page']=="" ) {  
+        $page = 1;  
+    } else {  
+        $page = $_GET['page'];  
+    }  
+  
+    //determine the sql LIMIT starting number for the results on the displaying page  
+    $page_first_result = ($page-1) * $results_per_page;  
+  
+    //retrieve the selected results from database   
+    $query = "SELECT *FROM admin LIMIT " . $page_first_result . ',' . $results_per_page;  
+    $result = mysqli_query($con, $query);  
+                                    while($row=mysqli_fetch_assoc($result)){
                                         echo "<tr>";
                                         echo "<td>".$row['id']."</td>";
                                         echo "<td>".$row['email']."</td>";
@@ -207,9 +230,36 @@ if(isset($_POST['add']))
 
                     </table>
 
-
-
+                  
                 </div>
+                  <!-- pagination -->
+                  <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item ">
+                                <?PHP if($page>=2){?>
+                                <a class="page-link" href="<?php echo "addAdmin.php?page=".$page-1; ?>" tabindex="-1">Previous</a>
+                                <?php  } ?>
+                            </li>
+                            <?php
+                             for($i = 1; $i<= $number_of_page; $i++) {  
+                                if($page==$i){
+                                echo '<li class="page-item active"><a class="page-link" href = "addAdmin.php?page=' . $i . '">' . $i . ' </a></li>';  
+                                }else{
+                                    echo '<li class="page-item "><a class="page-link" href = "addAdmin.php?page=' . $i . '">' . $i . ' </a></li>';  
+                                 
+                                }
+                            } 
+                            ?>
+                            
+                           <li class="page-item">
+                            <?PHP if($page<$number_of_page){?>
+                                <a class="page-link" href="<?php echo "addAdmin.php?page=".$page+1; ?>">Next</a>
+                                <?PHP } ?>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- pagination end -->
+
             </div>
         </div>
 
@@ -221,12 +271,10 @@ if(isset($_POST['add']))
 
 
 <script>
-
-$('.test').click(function(){
-    let val=$('.hidden').val();
+$('.test').click(function() {
+    let val = $('.hidden').val();
     alert(val);
 })
-
 </script>
 
 <?php
