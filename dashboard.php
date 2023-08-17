@@ -94,7 +94,8 @@ $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as co
 </div>
 
 
-
+</div>
+</div>
 <?php
 require("footer.php");
 ?>
