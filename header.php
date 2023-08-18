@@ -64,12 +64,12 @@ if(isset($_POST['logout'])){
         </a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href=<?php echo $ROOT."/Algae.php"?>>Algae</a>
-          <a class="dropdown-item" href="Fungi.php">Fungi</a>
-          <a class="dropdown-item" href="Lichens.php">Lichens</a>
-          <a class="dropdown-item" href="Bryophyte.php">Bryophyte</a>
-          <a class="dropdown-item" href="Pteridophytes.php">Pteridophytes</a>
-          <a class="dropdown-item" href="Angiosperm.php">Angiosperms</a>
-          <a class="dropdown-item" href="Gymnosperms.php">Gymnosperms</a>
+          <a class="dropdown-item" href=<?php echo $ROOT."/Fungi.php"?>>Fungi</a>
+          <a class="dropdown-item" href=<?php echo $ROOT."/Lichens.php"?>>Lichens</a>
+          <a class="dropdown-item" href=<?php echo $ROOT."/Bryophyte.php"?>>Bryophyte</a>
+          <a class="dropdown-item" href=<?php echo $ROOT."/Pteridophytes.php"?>>Pteridophytes</a>
+          <a class="dropdown-item" href=<?php echo $ROOT."/Angiosperms.php"?>>Angiosperms</a>
+          <a class="dropdown-item" href=<?php echo $ROOT."/Gymnosperms.php"?>>Gymnosperms</a>
           <div class="dropdown-divider"></div>
           <!-- <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
