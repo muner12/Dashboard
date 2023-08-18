@@ -8,6 +8,7 @@ require("header.php");
 $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from algue"));
 $total_fungi=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from fungi"));
 $total_angiosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from angiosperms"));
+$total_gymnosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from gymnosperms"));
 
 ?>
 <div class="jumbotron">
@@ -29,7 +30,7 @@ $total_angiosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) 
         <!-- Algae End -->
 
         <!-- Fungi -->
-    <div class="card border-secondary mb-3 col-lg-3 m-3" style="max-width: 18rem;">
+    <div class="card border-secondary mb-3 col-lg-3 m-3" style="max-width: 21rem;">
   <div class="card-header">Fungi</div>
   <div class="card-body text-secondary">
   <div class=" d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-secondary"><?PHP echo $total_fungi['count']?></span></div>
@@ -41,13 +42,13 @@ $total_angiosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) 
         <!-- End Fungi -->
 
         <!-- Angiosperm -->
-        <div class="card border-success mb-3 col-lg-3 m-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+        <div class="card border-success mb-3 col-lg-3 m-3" style="max-width: 21rem;">
+  <div class="card-header">Angiosperm</div>
   <div class="card-body text-success">
 
-  <div class=" d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-secondary"><?PHP echo $total_angiosperm['count']?></span></div>
+  <div class=" d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-success"><?PHP echo $total_angiosperm['count']?></span></div>
   <div class="d-flex mt-5">
-        <a class="btn btn-sm btn-secondary" href="tables/angiosperm.php">View More</a>
+        <a class="btn btn-sm btn-success" href="tables/angiosperm.php">View More</a>
     </div> 
     </div>
 </div>
@@ -58,17 +59,19 @@ $total_angiosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) 
 
 <div class="row d-flex justify-content-center">
 <!-- gemnosperm -->
-<div class="card border-danger mb-3 col-lg-3 m-3 " style="max-width: 18rem;">
+<div class="card border-danger mb-3 col-lg-3 m-3 " style="max-width: 21rem;">
   <div class="card-header">gemnosperm</div>
   <div class="card-body text-danger">
-    <h5 class="card-title">Danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <div class=" d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-danger"><?PHP echo $total_gymnosperm['count']?></span></div>
+  <div class="d-flex mt-5">
+        <a class="btn btn-sm btn-danger" href="tables/gymnosperms.php">View More</a>
+    </div> 
   </div>
 </div>
 <!-- End gemnosperm -->
 
 <!--  -->
-<div class="card border-warning mb-3 col-lg-3 m-3" style="max-width: 18rem;">
+<div class="card border-warning mb-3 col-lg-3 m-3" style="max-width: 21rem;">
   <div class="card-header">Header</div>
   <div class="card-body text-warning">
     <h5 class="card-title">Warning card title</h5>
@@ -77,7 +80,7 @@ $total_angiosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) 
 </div>
 <!--  -->
 <!--  -->
-<div class="card border-info mb-3 col-lg-3 m-3" style="max-width: 18rem;">
+<div class="card border-info mb-3 col-lg-3 m-3" style="max-width: 21rem;">
   <div class="card-header">Header</div>
   <div class="card-body text-info">
     <h5 class="card-title">Info card title</h5>

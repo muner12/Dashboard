@@ -10,7 +10,7 @@ if(!isset($_SESSION['user'])){
 if(isset($_POST['logout'])){
     unset($_SESSION['user']);
     session_destroy();
-    header("Location:index.php");
+    header("Location:{$ROOT}/index.php");
 }
 
 
