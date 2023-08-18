@@ -4,6 +4,8 @@
 require("header.php");
 
 $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from algue"));
+$total_fungi=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from fungi"));
+$total_angiosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from angiosperms"));
 
 ?>
 <div class="jumbotron">
@@ -17,7 +19,7 @@ $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as co
   <div class=" d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-primary"><?PHP echo $total_algee['count']?></span></div>
     
     <div class="d-flex mt-5">
-        <a class="btn btn-sm btn-success" href="tables/algae.php">View More</a>
+        <a class="btn btn-sm btn-primary" href="tables/algae.php">View More</a>
     </div>
   </div>
 </div>
@@ -26,11 +28,13 @@ $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as co
 
         <!-- Fungi -->
     <div class="card border-secondary mb-3 col-lg-3 m-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Fungi</div>
   <div class="card-body text-secondary">
-    <h5 class="card-title">Secondary card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
+  <div class=" d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-secondary"><?PHP echo $total_fungi['count']?></span></div>
+  <div class="d-flex mt-5">
+        <a class="btn btn-sm btn-secondary" href="tables/fungi.php">View More</a>
+    </div> 
+</div>
 </div>
         <!-- End Fungi -->
 
@@ -38,9 +42,12 @@ $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as co
         <div class="card border-success mb-3 col-lg-3 m-3" style="max-width: 18rem;">
   <div class="card-header">Header</div>
   <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
+
+  <div class=" d-flex justify-content-between"><span>Total spechies:</span><span class="badge badge-pill badge-secondary"><?PHP echo $total_angiosperm['count']?></span></div>
+  <div class="d-flex mt-5">
+        <a class="btn btn-sm btn-secondary" href="tables/angiosperm.php">View More</a>
+    </div> 
+    </div>
 </div>
         <!-- End   Angiosperm-->
 

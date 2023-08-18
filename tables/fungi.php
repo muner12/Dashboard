@@ -7,7 +7,7 @@ include("./table_function.php");
 if(isset($_GET['type']) && $_GET['type']=='delete'){
   
   
-  $result=mysqli_query($con,"delete from algue where id ={$_GET['id']}");
+  $result=mysqli_query($con,"delete from fungi where id ={$_GET['id']}");
   if($result){
     echo "<script>alert({$_GET['id']} is deleted)</script>";
   }
@@ -16,7 +16,7 @@ if(isset($_GET['type']) && $_GET['type']=='delete'){
 ?>
 
 
-<?php showTable("algue",$con,$ROOT,"algae")?>
+<?php showTable("fungi",$con,$ROOT,"fungi")?>
 
 <?php
 include("../footer.php");
