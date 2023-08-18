@@ -2,7 +2,7 @@
 <?php
 
 require("header.php");
-echo gethostbyaddr($_SERVER['REMOTE_ADDR']);
+
 
 
 $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from algue"));
