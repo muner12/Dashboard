@@ -133,8 +133,8 @@ if($result==1){
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                 <li class="breadcrumb-item active">
-                   <?PHP if($update_text=="update") { ?> <a>update gymnosperms</a><?php } else { ?>
-                    <a>Add gymnosperms</a><?PHP }?>
+                   <?PHP if($update_text=="update") { ?> <a>update lichens</a><?php } else { ?>
+                    <a>Add lichens</a><?PHP }?>
                 </li>
                 
             </ol>
