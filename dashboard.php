@@ -68,17 +68,17 @@ $total_gymnosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) 
     </div> 
   </div>
 </div>
-<!-- End gemnosperm -->
+<!-- End gymnosperm -->
 
-<!--  -->
+<!-- bryophytes -->
 <div class="card border-warning mb-3 col-lg-3 m-3" style="max-width: 21rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">bryophytes</div>
   <div class="card-body text-warning">
     <h5 class="card-title">Warning card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
 </div>
-<!--  -->
+<!--bryophytes  -->
 <!--  -->
 <div class="card border-info mb-3 col-lg-3 m-3" style="max-width: 21rem;">
   <div class="card-header">Header</div>
@@ -93,7 +93,7 @@ $total_gymnosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) 
 
 <div class="row d-flex justify-content-center">
     <!--  -->
-<div class="card border-dark mb-3 col-lg-3 m-3" style="max-width: 18rem;">
+<div class="card border-dark mb-3 col-lg-3 m-3" style="max-width: 21rem;">
   <div class="card-header">Header</div>
   <div class="card-body text-dark">
     <h5 class="card-title">Dark card title</h5>
