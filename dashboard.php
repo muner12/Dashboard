@@ -111,7 +111,7 @@ $total_gymnosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) 
 </div>
 <!--End lichens  -->
 <div>
-    <!--  -->
+    <!-- end row -->
 </div>
 
 
