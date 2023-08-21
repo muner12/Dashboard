@@ -31,12 +31,14 @@ try {
 
     $mail->isHTML(true);                                 
     $mail->Subject = 'OTP';
-    $mail->Body    = '<div>
+    $mail->Body    = '<div class="jumbotron">
     We are writing to verify your identity and ensure the security of your account. As part of our ongoing commitment to safeguard your information, we have implemented an additional layer of security through One-Time Password (OTP) verification.<br>
 
     To proceed with the OTP verification, please find below the OTP code you need to enter:
     <br>
+    <div class="bg-secondary p-5">
     OTP Code: '.$otp.'
+    </div>
     <br>
     Please note that this OTP code is valid for a limited time only and should not be shared with anyone. If you did not initiate this verification or suspect any unauthorized access to your account, please contact our support team immediately';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';

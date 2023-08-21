@@ -25,15 +25,15 @@ if(isset($_POST['insert'])){
     $picture_name=$_FILES['Picture']['name'];
     $picture_tempname=$_FILES['Picture']['tmp_name'];
 
-    $check_recored=mysqli_query($con,"select * from fungi where botanical='$botincal'");
+    $check_recored=mysqli_query($con,"select * from Fungi where botanical='$botincal'");
     if( mysqli_num_rows($check_recored)>0){
         echo '<script>alert("This Recored exist in the Database!!!")</script>';
     }else{
 
    
-    $sql="INSERT INTO `fungi` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
+    $sql="INSERT INTO `Fungi` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-    move_uploaded_file($picture_tempname,"upload/fungi/$picture_name");
+    move_uploaded_file($picture_tempname,"upload/Fungi/$picture_name");
     $result=mysqli_query($con,$sql);
 
 if($result==1){
@@ -56,7 +56,7 @@ if(isset($_GET['type']) && $_GET['type']=='update'){
 
 $fetch_one_row=[];
 if(isset($_GET['type']) && $_GET['type']=='update'){
-    $fetch_one_row=mysqli_fetch_assoc(mysqli_query($con,"select * from fungi where id={$_GET['id']}"));
+    $fetch_one_row=mysqli_fetch_assoc(mysqli_query($con,"select * from Fungi where id={$_GET['id']}"));
    
    
 }
@@ -90,18 +90,18 @@ if(isset($_POST['update'])){
         $picture_name=$_FILES['Picture']['name'];
         
         $picture_tempname=$_FILES['Picture']['tmp_name'];
-        move_uploaded_file($picture_tempname,"upload/fungi/$picture_name");
+        move_uploaded_file($picture_tempname,"upload/Fungi/$picture_name");
     }else{
         $picture_name=$db_picture;
        
         
     }
    
-    $sql="UPDATE `fungi` SET `botanical` = '$botincal', `synonyams` = '$sysnonyams',
+    $sql="UPDATE `Fungi` SET `botanical` = '$botincal', `synonyams` = '$sysnonyams',
      `family` = '$family', `group` = '$group', `country` = '$country',
       `province` = '$province', `collector` = '$collector', `collection_number` = '$collection_number', `year` = '$year',
        `upload_date` = '$upload_date', `description` = '$desciption',
-        `picture` = '$picture_name' WHERE `fungi`.`id` = {$_GET['id']}";
+        `picture` = '$picture_name' WHERE `Fungi`.`id` = {$_GET['id']}";
         $result=mysqli_query($con,$sql);
 
        
@@ -141,7 +141,7 @@ if($result==1){
         </nav>
         <!-- end bread Crumb -->
         <div class="roboto d-flex justify-content-center">
-            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update Fungi</a><?php } else { ?>
+            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update Algae</a><?php } else { ?>
                     <a>Add Fungi</a><?PHP }?></h3>
         </div>
         <form method="post" enctype="multipart/form-data">
@@ -239,7 +239,7 @@ if($result==1){
                     
                     ?>
                     <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>
-                    <?PHP } ?>
+                        <?PHP } ?>
                         </div>
             </div>
             
