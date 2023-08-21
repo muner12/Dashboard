@@ -142,7 +142,7 @@ if($result==1){
         <!-- end bread Crumb -->
         <div class="roboto d-flex justify-content-center">
             <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update gymnosperms</a><?php } else { ?>
-                    <a>Add bryophytes</a><?PHP }?></h3>
+                    <a>Add gymnosperms</a><?PHP }?></h3>
         </div>
         <form method="post" enctype="multipart/form-data">
 

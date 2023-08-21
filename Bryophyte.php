@@ -235,7 +235,7 @@ if($result==1){
                     
                     <?php
                     if(isset($_GET['type']) && $_GET['type']=='update'){
-                        echo "<img width='100px' height='60px' src='upload/bryophytes/{$fetch_one_row['picture']}'>";
+                        echo "<img width='100px' height='60px' src='upload/bryophyte/{$fetch_one_row['picture']}'>";
                     }
                     ?>
                     <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>

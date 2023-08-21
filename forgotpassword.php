@@ -1,4 +1,5 @@
 <?php 
+include("db_connection/connection.php");
 session_start();
 
 $error="";
@@ -7,18 +8,18 @@ if(isset($_POST['updatePass']))
 {
 	$email=$_POST['email'];
 	$pass=$_POST['password'];
-	$pass= sha1($pass);
+	$pass=password_hash($_POST['password'],PASSWORD_DEFAULT);
 
 	
 	if(!empty($email) && !empty($pass))
 	{
-		$sql = "update user set upass='$pass' where uemail='$email'";
+		$sql = "update admin set password='$pass' where email='$email'";
 		$result=mysqli_query($con, $sql);
 		
 		   if($result){
 			   
 				$_SESSION['update_password']="Your Password Updated successfully Please Login";
-				header("location:login.php");
+				header("location:index.php");
 				
 		   }
 		   else{
