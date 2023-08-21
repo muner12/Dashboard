@@ -6,6 +6,8 @@ if($pcName=="x1"){
     $ROOT="/admin";
 }else if($pcName=="DESKTOP-E2CHPPH"){
     $ROOT="/admin";
+} else if($pcName=="Muner"){
+    $ROOT="/sarzamin-project";
 }
 
 ?>

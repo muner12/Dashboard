@@ -68,7 +68,7 @@ if(isset($_POST['logout'])){
           <a class="dropdown-item" href=<?php echo $ROOT."/Lichens.php"?>>Lichens</a>
           <a class="dropdown-item" href=<?php echo $ROOT."/Bryophyte.php"?>>Bryophyte</a>
           <a class="dropdown-item" href=<?php echo $ROOT."/Pteridophytes.php"?>>Pteridophytes</a>
-          <a class="dropdown-item" href=<?php echo $ROOT."/Angiosperms.php"?>>Angiosperms</a>
+          <a class="dropdown-item" href=<?php echo $ROOT."/Angiosperm.php"?>>Angiosperms</a>
           <a class="dropdown-item" href=<?php echo $ROOT."/Gymnosperms.php"?>>Gymnosperms</a>
           <div class="dropdown-divider"></div>
           <!-- <a class="dropdown-item" href="#">Something else here</a> -->
