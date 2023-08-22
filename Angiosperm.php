@@ -33,7 +33,7 @@ if(isset($_POST['insert'])){
    
     $sql="INSERT INTO `angiosperms` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-    move_uploaded_file($picture_tempname,"upload/angiosperm/$picture_name");
+    move_uploaded_file($picture_tempname,"upload/Angiosperm/$picture_name");
     $result=mysqli_query($con,$sql);
 
 if($result==1){
@@ -90,7 +90,7 @@ if(isset($_POST['update'])){
         $picture_name=$_FILES['Picture']['name'];
         
         $picture_tempname=$_FILES['Picture']['tmp_name'];
-        move_uploaded_file($picture_tempname,"upload/angiosperm/$picture_name");
+        move_uploaded_file($picture_tempname,"upload/Angiosperm/$picture_name");
     }else{
         $picture_name=$db_picture;
        
@@ -235,7 +235,7 @@ if($result==1){
                     
                     <?php
                     if(isset($_GET['type']) && $_GET['type']=='update'){
-                        echo "<img width='100px' height='60px' src='upload/angiosperm/{$fetch_one_row['picture']}'>";
+                        echo "<img width='100px' height='60px' src='upload/Angiosperm/{$fetch_one_row['picture']}'>";
                     
                     ?>
                     <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>
