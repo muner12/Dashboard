@@ -83,7 +83,7 @@ function showTable($tableName,$con,$ROOT,$path){
                     <ul class="pagination justify-content-center">
                         <li class="page-item ">
                             <?PHP if($page>=2){?>
-                            <a class="page-link" href="<?php echo "addAdmin.php?page=".$page-1; ?>"
+                            <a class="page-link" href="<?php echo $path.".php?page=".$page-1; ?>"
                                 tabindex="-1">Previous</a>
                             <?php  } ?>
                         </li>

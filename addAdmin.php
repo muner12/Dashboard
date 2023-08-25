@@ -139,7 +139,7 @@ if(isset($_POST['add']))
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                    <form><button type="submit" class="btn btn-sm btn-outline-danger">Delete</button></form>
                 </div>
             </div>
         </div>
@@ -221,8 +221,9 @@ if(isset($_POST['add']))
                                         else{
                                         echo "<td><a class='btn btn-sm btn-outline-success' href='?id={$row['id']}&type=active'><i class='fa fa-check' aria-hidden='true' data-toggle='tooltip' data-placement='right' title='Active'></i></a></td>";
                                         }
-                                        echo "<td><input type='hidden' id='{$row['id']}'  class='hidden' name='deleteID' value='{$row['id']}'>
-                                        <a  class='test btn-sm btn-outline-danger' data-toggle='modal' data-target='#exampleModalCenter1'>
+                                        echo "<td>
+                                        <input type='hidden' id='id{$row['id']}'  class='hidden1' name='deleteID' value='{$row['id']}' >
+                                        <a  class=' class_{$row['id'] } btn btn-sm btn-outline-danger hidden2' data-toggle='modal' data-target='#exampleModalCenter1'>
                                         <i class='fa fa-trash' aria-hidden='true'></i></a> </td>";
                                     }
                                 ?>
@@ -273,12 +274,9 @@ if(isset($_POST['add']))
 
 
 <script>
-$('.test').click(function() {
-    let val = $('.hidden').val();
-    alert(val);
-})
-var inputs = document.getElementsByClassName("hidden");
-console.log(inputs.length);
+
+
+
 </script>
 
 <?php
