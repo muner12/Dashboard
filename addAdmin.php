@@ -72,25 +72,25 @@ if(isset($_POST['add']))
 
                             <div class="form-group">
                                 <label for="name">Email</label>
-                                <input type="email" class="form-control" name="email" id="name" placeholder="email"
+                                <input type="email" class="form-control" name="email"  placeholder="email"
                                     autocomplete="off">
 
                             </div>
                             <div class="form-group">
                                 <label for="name">Contact</label>
-                                <input type="number" class="form-control" name="contact" id="name" placeholder="contact"
+                                <input type="number" class="form-control" name="contact" placeholder="contact"
                                     autocomplete="off">
 
                             </div>
                             <div class="form-group">
                                 <label for="name">password</label>
-                                <input type="password" class="form-control" name="password" id="name"
+                                <input type="password" class="form-control" name="password" 
                                     placeholder="password" autocomplete="off">
 
                             </div>
                             <div class="form-group">
                                 <label for="name">confirm password</label>
-                                <input type="password" class="form-control" name="cpassword" id="name"
+                                <input type="password" class="form-control" name="cpassword" 
                                     placeholder="password" autocomplete="off">
 
                             </div>
@@ -106,7 +106,7 @@ if(isset($_POST['add']))
                             </div>
                             <div class="form-group">
 
-                                <input type="submit" class="btn btn-success" name="add" id="name" value="submit">
+                                <input type="submit" class="btn btn-success" name="add"  value="submit">
 
                             </div>
                         </div>
@@ -221,7 +221,8 @@ if(isset($_POST['add']))
                                         else{
                                         echo "<td><a class='btn btn-sm btn-outline-success' href='?id={$row['id']}&type=active'><i class='fa fa-check' aria-hidden='true' data-toggle='tooltip' data-placement='right' title='Active'></i></a></td>";
                                         }
-                                        echo "<td><input type='hidden' class='hidden' value='{$row['id']}'><a  class='test btn-sm btn-outline-danger' data-toggle='modal' data-target='#exampleModalCenter1'>
+                                        echo "<td><input type='hidden' id='{$row['id']}'  class='hidden' name='deleteID' value='{$row['id']}'>
+                                        <a  class='test btn-sm btn-outline-danger' data-toggle='modal' data-target='#exampleModalCenter1'>
                                         <i class='fa fa-trash' aria-hidden='true'></i></a> </td>";
                                     }
                                 ?>
@@ -230,17 +231,18 @@ if(isset($_POST['add']))
 
                     </table>
 
-                  
+
                 </div>
-                  <!-- pagination -->
-                  <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item ">
-                                <?PHP if($page>=2){?>
-                                <a class="page-link" href="<?php echo "addAdmin.php?page=".$page-1; ?>" tabindex="-1">Previous</a>
-                                <?php  } ?>
-                            </li>
-                            <?php
+                <!-- pagination -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item ">
+                            <?PHP if($page>=2){?>
+                            <a class="page-link" href="<?php echo "addAdmin.php?page=".$page-1; ?>"
+                                tabindex="-1">Previous</a>
+                            <?php  } ?>
+                        </li>
+                        <?php
                              for($i = 1; $i<= $number_of_page; $i++) {  
                                 if($page==$i){
                                 echo '<li class="page-item active"><a class="page-link" href = "addAdmin.php?page=' . $i . '">' . $i . ' </a></li>';  
@@ -250,15 +252,15 @@ if(isset($_POST['add']))
                                 }
                             } 
                             ?>
-                            
-                           <li class="page-item">
+
+                        <li class="page-item">
                             <?PHP if($page<$number_of_page){?>
-                                <a class="page-link" href="<?php echo "addAdmin.php?page=".$page+1; ?>">Next</a>
-                                <?PHP } ?>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- pagination end -->
+                            <a class="page-link" href="<?php echo "addAdmin.php?page=".$page+1; ?>">Next</a>
+                            <?PHP } ?>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- pagination end -->
 
             </div>
         </div>
@@ -275,6 +277,8 @@ $('.test').click(function() {
     let val = $('.hidden').val();
     alert(val);
 })
+var inputs = document.getElementsByClassName("hidden");
+console.log(inputs.length);
 </script>
 
 <?php

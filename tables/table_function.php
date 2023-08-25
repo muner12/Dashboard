@@ -8,6 +8,7 @@ function showTable($tableName,$con,$ROOT,$path){
         <a class="btn btn-outline-success mb-1" href="../<?Php echo $path?>.php">
             <i class="fa fa-plus-circle" aria-hidden="true"></i>
         </a>
+    
     </div>
     <div class="table-responsive-sm">
         <!-- Table -->
@@ -26,10 +27,32 @@ function showTable($tableName,$con,$ROOT,$path){
             <th colspan="2" style="text-align:center">Actions</th>
            
 
-    <thead>
+</thead>
+<tbody>
     <?php
-    $sql="select * from {$tableName} ";
-    $result=mysqli_query($con,$sql);
+    $results_per_page = 10;  
+  
+    //find the total number of results stored in the database  
+    $query = "select *from {$tableName}";  
+    $result = mysqli_query($con, $query);  
+    $number_of_result = mysqli_num_rows($result);  
+  
+    //determine the total number of pages available  
+    $number_of_page = ceil ($number_of_result / $results_per_page);  
+  
+    //determine which page number visitor is currently on  
+    if (!isset ($_GET['page']) || $_GET['page']=="" ) {  
+        $page = 1;  
+    } else {  
+        $page = $_GET['page'];  
+    }  
+  
+    //determine the sql LIMIT starting number for the results on the displaying page  
+    $page_first_result = ($page-1) * $results_per_page;  
+  
+    //retrieve the selected results from database   
+    $query = "SELECT *FROM {$tableName} LIMIT " . $page_first_result . ',' . $results_per_page;  
+    $result = mysqli_query($con, $query);  
     while($row=mysqli_fetch_assoc($result)){
         echo "<tr>
 
@@ -49,12 +72,40 @@ function showTable($tableName,$con,$ROOT,$path){
     }
 
     ?>
-    <tbody>
+    </tbody>
 
-</tbody>
+
 </table>
 
     </div>
+    <!-- pagination -->
+    <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item ">
+                            <?PHP if($page>=2){?>
+                            <a class="page-link" href="<?php echo "addAdmin.php?page=".$page-1; ?>"
+                                tabindex="-1">Previous</a>
+                            <?php  } ?>
+                        </li>
+                        <?php
+                             for($i = 1; $i<= $number_of_page; $i++) {  
+                                if($page==$i){
+                                echo '<li class="page-item active"><a class="page-link" href = "'.$path.'.php?page=' . $i . '">' . $i . ' </a></li>';  
+                                }else{
+                                    echo '<li class="page-item "><a class="page-link" href = "'.$path.'.php?page=' . $i . '">' . $i . ' </a></li>';  
+                                 
+                                }
+                            } 
+                            ?>
+
+                        <li class="page-item">
+                            <?PHP if($page<$number_of_page){?>
+                            <a class="page-link" href="<?php echo $path.".php?page=".$page+1; ?>">Next</a>
+                            <?PHP } ?>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- pagination end -->
 </div>
 </div>
 
