@@ -25,15 +25,15 @@ if(isset($_POST['insert'])){
     $picture_name=$_FILES['Picture']['name'];
     $picture_tempname=$_FILES['Picture']['tmp_name'];
 
-    $check_recored=mysqli_query($con,"select * gymnosperms where botanical='$botincal'");
+    $check_recored=mysqli_query($con,"select * gymnosperm where botanical='$botincal'");
     if( mysqli_num_rows($check_recored)>0){
         echo '<script>alert("This Recored exist in the Database!!!")</script>';
     }else{
 
    
-    $sql="INSERT INTO `gymnosperms` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
+    $sql="INSERT INTO `gymnosperm` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-    move_uploaded_file($picture_tempname,"upload/gymnosperms/$picture_name");
+    move_uploaded_file($picture_tempname,"upload/Gymnosperms/$picture_name");
     $result=mysqli_query($con,$sql);
 
 if($result==1){
@@ -56,7 +56,7 @@ if(isset($_GET['type']) && $_GET['type']=='update'){
 
 $fetch_one_row=[];
 if(isset($_GET['type']) && $_GET['type']=='update'){
-    $fetch_one_row=mysqli_fetch_assoc(mysqli_query($con,"select * from gymnosperms where id={$_GET['id']}"));
+    $fetch_one_row=mysqli_fetch_assoc(mysqli_query($con,"select * from gymnosperm where id={$_GET['id']}"));
    
    
 }
@@ -90,18 +90,18 @@ if(isset($_POST['update'])){
         $picture_name=$_FILES['Picture']['name'];
         
         $picture_tempname=$_FILES['Picture']['tmp_name'];
-        move_uploaded_file($picture_tempname,"upload/gymnosperms/$picture_name");
+        move_uploaded_file($picture_tempname,"upload/Gymnosperms/$picture_name");
     }else{
         $picture_name=$db_picture;
        
         
     }
    
-    $sql="UPDATE `gymnosperms` SET `botanical` = '$botincal', `synonyams` = '$sysnonyams',
+    $sql="UPDATE `gymnosperm` SET `botanical` = '$botincal', `synonyams` = '$sysnonyams',
      `family` = '$family', `group` = '$group', `country` = '$country',
       `province` = '$province', `collector` = '$collector', `collection_number` = '$collection_number', `year` = '$year',
        `upload_date` = '$upload_date', `description` = '$desciption',
-        `picture` = '$picture_name' WHERE `gymnosperms`.`id` = {$_GET['id']}";
+        `picture` = '$picture_name' WHERE `gymnosperm`.`id` = {$_GET['id']}";
         $result=mysqli_query($con,$sql);
 
        
