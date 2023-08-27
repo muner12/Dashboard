@@ -2,7 +2,7 @@
 
 require("header.php");
 require("db_connection/connection.php");
-
+require('functions.php');
 
 
 if(isset($_GET['id'])){
@@ -168,12 +168,13 @@ if(isset($_POST['add']))
     } else {  
         $page = $_GET['page'];  
     }  
-  
+  $path="addAdmin";
     //determine the sql LIMIT starting number for the results on the displaying page  
     $page_first_result = ($page-1) * $results_per_page;  
   
     //retrieve the selected results from database   
-    $query = "SELECT *FROM admin LIMIT " . $page_first_result . ',' . $results_per_page;  
+    $query = "SELECT *FROM admin LIMIT " . $page_first_result . ',' . $results_per_page; 
+    $tableName=encrypt("admin"); 
     $result = mysqli_query($con, $query);  
                                     while($row=mysqli_fetch_assoc($result)){
                                         if($_SESSION['user']==$row['email']){
@@ -202,7 +203,7 @@ if(isset($_POST['add']))
                                         else{
                                         echo "<td><a class='btn btn-sm btn-outline-success' href='?id={$row['id']}&type=active'><i class='fa fa-check' aria-hidden='true' data-toggle='tooltip' data-placement='right' title='Active'></i></a></td>";
                                         }
-                                        echo "<td><a  href='delete.php?adminId={$row['id']}' class='btn btn-sm btn-outline-danger hidden2'>
+                                        echo "<td><a  href='delete.php?id={$row['id']}&path={$path}&table={$tableName}' class='btn btn-sm btn-outline-danger hidden2'>
                                         <i class='fa fa-trash'></i></a> </td>";
                                     }
                                 ?>

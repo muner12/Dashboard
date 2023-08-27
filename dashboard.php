@@ -5,6 +5,7 @@ require("header.php");
 
 
 
+
 $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from algue"));
 $total_fungi=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from fungi"));
 $total_angiosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from angiosperms"));

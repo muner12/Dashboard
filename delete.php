@@ -1,13 +1,25 @@
 <?PHP
 
 include("header.php");
+include("functions.php");
 
-if(isset($_GET['adminId']) ){
-    $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where id={$_GET['adminId']}"));
+if(isset($_GET['id']) && isset($_GET['table']) && isset($_GET['path']) ){
+    $path=$_GET['path'];
+    
+    $arr=explode("@#@",$_GET['table']);
+    
+    $tableName=decrypt($arr[0]);
+    
+    if(isset($_GET['id'])){
+        $row=mysqli_fetch_assoc(mysqli_query($con,"select * from $tableName where id={$_GET['id']}"));
+
+    }else{
+
+    }
 if(isset($_POST['delete-btn'])){
-    $id=$_GET['adminId'];
-    $result=mysqli_query($con,"delete from admin where id={$id}");
-    header("location:addAdmin.php?success=yes");
+    $id=$_GET['id'];
+    $result=mysqli_query($con,"delete from $tableName where id={$id}");
+    header("location:$path.php?success=yes");
 }
 
 
@@ -43,12 +55,14 @@ if(isset($_POST['delete-btn'])){
 
 </div>
 <script>
-    $("#exampleModalCenter1").modal("show");
+     $("#exampleModalCenter1").modal("show");
+    let a=<?PHP echo "\"".strval($path)."\"";?>
+   
     $("#cancle").on("click",function(){
-        window.location.href="addAdmin.php";
+        window.location.href=a+".php";
     });
     $(".close").on("click",function(){
-        window.location.href="addAdmin.php";
+        window.location.href=a+".php";
     });
     </script>
 
