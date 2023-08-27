@@ -66,8 +66,8 @@ function showTable($tableName,$con,$ROOT,$path){
         <td>".$row['collection_number']."</td>
         <td>".$row['year']."</td>
         <td><img width='50px' height='35px' src='../upload/{$path}/{$row['picture']}'></td>
-        <td> <a class='btn btn-sm btn-danger' href='?id={$row['id']}&type=delete'>Delete</a></td>
-        <td><a class='btn btn-sm btn-primary' href='{$ROOT}/{$path}.php?id={$row['id']}&type=update'>Edit</a></td>
+        <td> <a class='btn btn-sm btn-outline-danger' href='../delete.php?speciesId={$row['id']}'><i class='fa fa-trash'></i></a></td>
+        <td><a class='btn btn-sm btn-outline-primary' href='{$ROOT}/{$path}.php?id={$row['id']}&type=update'><i class='fa fa-pencil'></i></a></td>
         </tr>";
     }
 

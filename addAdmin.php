@@ -51,9 +51,12 @@ if(isset($_POST['add']))
 
 
 <div class="jumbotron">
-
-
-
+<?PHP if(isset($_GET['success'])){?>
+<div class="alert alert-danger alert-dismissible">
+  <button type="submit" class="close" data-dismiss="alert">&times;</button>
+  <strong>One!</strong> Record deleted Successfully.
+</div>
+<?php } ?>
     <!-- Modal -->
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -122,31 +125,6 @@ if(isset($_POST['add']))
         </div>
     </div>
     <!-- model End -->
-    <!-- Delete Modal  -->
-    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Alert Box <span class=""><i
-                                class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are You Sure To Delete
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Close</button>
-                    <form><button type="submit" class="btn btn-sm btn-outline-danger">Delete</button></form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal End for Delete confirmation -->
 
 
 
@@ -198,6 +176,9 @@ if(isset($_POST['add']))
     $query = "SELECT *FROM admin LIMIT " . $page_first_result . ',' . $results_per_page;  
     $result = mysqli_query($con, $query);  
                                     while($row=mysqli_fetch_assoc($result)){
+                                        if($_SESSION['user']==$row['email']){
+                                            continue;
+                                        }
                                         echo "<tr>";
                                         echo "<td>".$row['id']."</td>";
                                         echo "<td>".$row['email']."</td>";
@@ -221,10 +202,8 @@ if(isset($_POST['add']))
                                         else{
                                         echo "<td><a class='btn btn-sm btn-outline-success' href='?id={$row['id']}&type=active'><i class='fa fa-check' aria-hidden='true' data-toggle='tooltip' data-placement='right' title='Active'></i></a></td>";
                                         }
-                                        echo "<td>
-                                        <input type='hidden' id='id{$row['id']}'  class='hidden1' name='deleteID' value='{$row['id']}' >
-                                        <a  class=' class_{$row['id'] } btn btn-sm btn-outline-danger hidden2' data-toggle='modal' data-target='#exampleModalCenter1'>
-                                        <i class='fa fa-trash' aria-hidden='true'></i></a> </td>";
+                                        echo "<td><a  href='delete.php?adminId={$row['id']}' class='btn btn-sm btn-outline-danger hidden2'>
+                                        <i class='fa fa-trash'></i></a> </td>";
                                     }
                                 ?>
                             </tbody>
@@ -275,7 +254,9 @@ if(isset($_POST['add']))
 
 <script>
 
-
+$(".close").on("click",function(){
+    window.location.href="addAdmin.php";
+})
 
 </script>
 
