@@ -2,7 +2,7 @@
 
 require("header.php");
 require("db_connection/connection.php");
-
+require('functions.php');
 
 
 if(isset($_GET['id'])){
@@ -51,9 +51,12 @@ if(isset($_POST['add']))
 
 
 <div class="jumbotron">
-
-
-
+<?PHP if(isset($_GET['success'])){?>
+<div class="alert alert-danger alert-dismissible">
+  <button type="submit" class="close" data-dismiss="alert">&times;</button>
+  <strong>One!</strong> Record deleted Successfully.
+</div>
+<?php } ?>
     <!-- Modal -->
 
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -72,25 +75,25 @@ if(isset($_POST['add']))
 
                             <div class="form-group">
                                 <label for="name">Email</label>
-                                <input type="email" class="form-control" name="email" id="name" placeholder="email"
+                                <input type="email" class="form-control" name="email"  placeholder="email"
                                     autocomplete="off">
 
                             </div>
                             <div class="form-group">
                                 <label for="name">Contact</label>
-                                <input type="number" class="form-control" name="contact" id="name" placeholder="contact"
+                                <input type="number" class="form-control" name="contact" placeholder="contact"
                                     autocomplete="off">
 
                             </div>
                             <div class="form-group">
                                 <label for="name">password</label>
-                                <input type="password" class="form-control" name="password" id="name"
+                                <input type="password" class="form-control" name="password" 
                                     placeholder="password" autocomplete="off">
 
                             </div>
                             <div class="form-group">
                                 <label for="name">confirm password</label>
-                                <input type="password" class="form-control" name="cpassword" id="name"
+                                <input type="password" class="form-control" name="cpassword" 
                                     placeholder="password" autocomplete="off">
 
                             </div>
@@ -106,7 +109,7 @@ if(isset($_POST['add']))
                             </div>
                             <div class="form-group">
 
-                                <input type="submit" class="btn btn-success" name="add" id="name" value="submit">
+                                <input type="submit" class="btn btn-success" name="add"  value="submit">
 
                             </div>
                         </div>
@@ -122,31 +125,6 @@ if(isset($_POST['add']))
         </div>
     </div>
     <!-- model End -->
-    <!-- Delete Modal  -->
-    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Alert Box <span class=""><i
-                                class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are You Sure To Delete
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal End for Delete confirmation -->
 
 
 
@@ -190,14 +168,18 @@ if(isset($_POST['add']))
     } else {  
         $page = $_GET['page'];  
     }  
-  
+  $path="addAdmin";
     //determine the sql LIMIT starting number for the results on the displaying page  
     $page_first_result = ($page-1) * $results_per_page;  
   
     //retrieve the selected results from database   
-    $query = "SELECT *FROM admin LIMIT " . $page_first_result . ',' . $results_per_page;  
+    $query = "SELECT *FROM admin LIMIT " . $page_first_result . ',' . $results_per_page; 
+    $tableName=encrypt("admin"); 
     $result = mysqli_query($con, $query);  
                                     while($row=mysqli_fetch_assoc($result)){
+                                        if($_SESSION['user']==$row['email']){
+                                            continue;
+                                        }
                                         echo "<tr>";
                                         echo "<td>".$row['id']."</td>";
                                         echo "<td>".$row['email']."</td>";
@@ -221,8 +203,8 @@ if(isset($_POST['add']))
                                         else{
                                         echo "<td><a class='btn btn-sm btn-outline-success' href='?id={$row['id']}&type=active'><i class='fa fa-check' aria-hidden='true' data-toggle='tooltip' data-placement='right' title='Active'></i></a></td>";
                                         }
-                                        echo "<td><input type='hidden' class='hidden' value='{$row['id']}'><a  class='test btn-sm btn-outline-danger' data-toggle='modal' data-target='#exampleModalCenter1'>
-                                        <i class='fa fa-trash' aria-hidden='true'></i></a> </td>";
+                                        echo "<td><a  href='delete.php?id={$row['id']}&path={$path}&table={$tableName}' class='btn btn-sm btn-outline-danger hidden2'>
+                                        <i class='fa fa-trash'></i></a> </td>";
                                     }
                                 ?>
                             </tbody>
@@ -230,17 +212,18 @@ if(isset($_POST['add']))
 
                     </table>
 
-                  
+
                 </div>
-                  <!-- pagination -->
-                  <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item ">
-                                <?PHP if($page>=2){?>
-                                <a class="page-link" href="<?php echo "addAdmin.php?page=".$page-1; ?>" tabindex="-1">Previous</a>
-                                <?php  } ?>
-                            </li>
-                            <?php
+                <!-- pagination -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item ">
+                            <?PHP if($page>=2){?>
+                            <a class="page-link" href="<?php echo "addAdmin.php?page=".$page-1; ?>"
+                                tabindex="-1">Previous</a>
+                            <?php  } ?>
+                        </li>
+                        <?php
                              for($i = 1; $i<= $number_of_page; $i++) {  
                                 if($page==$i){
                                 echo '<li class="page-item active"><a class="page-link" href = "addAdmin.php?page=' . $i . '">' . $i . ' </a></li>';  
@@ -250,15 +233,15 @@ if(isset($_POST['add']))
                                 }
                             } 
                             ?>
-                            
-                           <li class="page-item">
+
+                        <li class="page-item">
                             <?PHP if($page<$number_of_page){?>
-                                <a class="page-link" href="<?php echo "addAdmin.php?page=".$page+1; ?>">Next</a>
-                                <?PHP } ?>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- pagination end -->
+                            <a class="page-link" href="<?php echo "addAdmin.php?page=".$page+1; ?>">Next</a>
+                            <?PHP } ?>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- pagination end -->
 
             </div>
         </div>
@@ -271,10 +254,11 @@ if(isset($_POST['add']))
 
 
 <script>
-$('.test').click(function() {
-    let val = $('.hidden').val();
-    alert(val);
+
+$(".close").on("click",function(){
+    window.location.href="addAdmin.php";
 })
+
 </script>
 
 <?php
