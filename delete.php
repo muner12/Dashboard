@@ -2,8 +2,8 @@
 
 include("header.php");
 include("functions.php");
-
-if(isset($_GET['id']) && isset($_GET['table']) && isset($_GET['path']) ){
+echo $_GET['path'];
+if(isset($_GET['id']) ||isset($_GET['id'])  && isset($_GET['table']) && isset($_GET['path']) ){
     $path=$_GET['path'];
     
     $arr=explode("@#@",$_GET['table']);
