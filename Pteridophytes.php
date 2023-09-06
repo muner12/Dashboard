@@ -33,7 +33,7 @@ if(isset($_POST['insert'])){
    
     $sql="INSERT INTO `pteridophytes` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-    move_uploaded_file($picture_tempname,"upload/Pteridophyte/$picture_name");
+    move_uploaded_file($picture_tempname,"upload/Pteridophytes/$picture_name");
     $result=mysqli_query($con,$sql);
 
 if($result==1){
