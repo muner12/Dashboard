@@ -4,36 +4,38 @@ include('../functions.php');
 
 function showTable($tableName,$con,$ROOT,$path){
     $arr=encrypt($tableName);
+  
    
 ?>
 
 <div class="jumbotron">
+    <div class="d-flex justify-content-center text-success"><h3><?php echo ucfirst($path); ?> table</h3></div>
     <div class="d-flex justify-content-start">
         <a class="btn btn-outline-success mb-1" href="../<?Php echo $path?>.php">
             <i class="fa fa-plus-circle" aria-hidden="true"></i>
         </a>
-    
+
     </div>
     <div class="table-responsive-sm">
         <!-- Table -->
         <table class="table table-hover table-striped table-bordered table-font">
-    <thead class="bg-secondary">
-            <th>id</th>
-            <th>Botinical Name</th>
-            <th>synonyams</th>
-            <th>family</th>
-            <th>country</th>
-            <th>province</th>
-            <th>collector</th>
-            <th>collection_number</th>
-            <th>year</th>
-            <th>Image</th>
-            <th colspan="2" style="text-align:center">Actions</th>
-           
+            <thead class="bg-secondary">
+                <th>id</th>
+                <th>Botinical Name</th>
+                <th>synonyams</th>
+                <th>family</th>
+                <th>country</th>
+                <th>province</th>
+                <th>collector</th>
+                <th>collection_number</th>
+                <th>year</th>
+                <th>Image</th>
+                <th colspan="2" style="text-align:center">Actions</th>
 
-</thead>
-<tbody>
-    <?php
+
+            </thead>
+            <tbody>
+                <?php
     $results_per_page = 10;  
   
     //find the total number of results stored in the database  
@@ -76,22 +78,22 @@ function showTable($tableName,$con,$ROOT,$path){
     }
 
     ?>
-    </tbody>
+            </tbody>
 
 
-</table>
+        </table>
 
     </div>
+
     <!-- pagination -->
     <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item ">
-                            <?PHP if($page>=2){?>
-                            <a class="page-link" href="<?php echo $path.".php?page=".$page-1; ?>"
-                                tabindex="-1">Previous</a>
-                            <?php  } ?>
-                        </li>
-                        <?php
+        <ul class="pagination justify-content-center">
+            <li class="page-item ">
+                <?PHP if($page>=2){?>
+                <a class="page-link" href="<?php echo $path.".php?page=".$page-1; ?>" tabindex="-1">Previous</a>
+                <?php  } ?>
+            </li>
+            <?php
                              for($i = 1; $i<= $number_of_page; $i++) {  
                                 if($page==$i){
                                 echo '<li class="page-item active"><a class="page-link" href = "'.$path.'.php?page=' . $i . '">' . $i . ' </a></li>';  
@@ -102,14 +104,14 @@ function showTable($tableName,$con,$ROOT,$path){
                             } 
                             ?>
 
-                        <li class="page-item">
-                            <?PHP if($page<$number_of_page){?>
-                            <a class="page-link" href="<?php echo $path.".php?page=".$page+1; ?>">Next</a>
-                            <?PHP } ?>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- pagination end -->
+            <li class="page-item">
+                <?PHP if($page<$number_of_page){?>
+                <a class="page-link" href="<?php echo $path.".php?page=".$page+1; ?>">Next</a>
+                <?PHP } ?>
+            </li>
+        </ul>
+    </nav>
+    <!-- pagination end -->
 </div>
 </div>
 

@@ -2,9 +2,9 @@
 
 include("header.php");
 include("functions.php");
-echo $_GET['path'];
-if(isset($_GET['id']) ||isset($_GET['id'])  && isset($_GET['table']) && isset($_GET['path']) ){
-    $path=$_GET['path'];
+
+if(isset($_GET['id']) || isset($_GET['speciesId'])  && isset($_GET['table']) && isset($_GET['path']) ){
+    $path=isset($_GET['id'])?$_GET['path']:"tables/".$_GET['path'];
     
     $arr=explode("@#@",$_GET['table']);
     
@@ -14,11 +14,14 @@ if(isset($_GET['id']) ||isset($_GET['id'])  && isset($_GET['table']) && isset($_
         $row=mysqli_fetch_assoc(mysqli_query($con,"select * from $tableName where id={$_GET['id']}"));
 
     }else{
+        $row=mysqli_fetch_assoc(mysqli_query($con,"select * from $tableName where id={$_GET['speciesId']}"));
 
     }
 if(isset($_POST['delete-btn'])){
-    $id=$_GET['id'];
+    $id=isset($_GET['id'])?$_GET['id']:$_GET['speciesId'];
+
     $result=mysqli_query($con,"delete from $tableName where id={$id}");
+
     header("location:$path.php?success=yes");
 }
 
@@ -40,7 +43,9 @@ if(isset($_POST['delete-btn'])){
                     </button>
                 </div>
                 <div class="modal-body">
-                    Are You Sure To Delete <strong>'<?PHP echo $row['email'];?>'</strong>
+                    Are You Sure To Delete <strong>'<?PHP if(isset($_G['id'])){
+                        echo  $row['email'];
+                    }else echo $row['botanical']?>'</strong>
                 </div>
                 <div class="modal-footer">
                     <button type="button"  id="cancle" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">Close</button>
