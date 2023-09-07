@@ -58,7 +58,7 @@ if(isset($_POST['add']))
 </div>
 <?php } ?>
     <!-- Modal -->
-
+<div class="d-flex justify-content-center text-success"><h3>Add Admin</h3></div>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
