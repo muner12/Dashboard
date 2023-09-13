@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2023 at 04:37 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Sep 13, 2023 at 01:06 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,25 +29,26 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `contact` varchar(15) NOT NULL,
   `role` varchar(50) NOT NULL,
   `status` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `email`, `password`, `contact`, `role`, `status`) VALUES
-(7, 'bakhtmuner06@gmail.com', '$2y$10$u9V4Dq2raH3WawD.pFpHm./GS2A2pfmmNACYuZ8UIMkFybBQI/jB.', '03329611333', 'superAdmin', 1),
-(8, 'sarzamin@gmail.com', '$2y$10$VzTeq42woU.r4zjXtpAed.SQBvN43hIDEbrnSV05xWZPDsJss6F1.', '123', 'subAdmin', 0),
-(9, 'rahman@gmail.com', '$2y$10$daesP1ugLHBUiP4fJkHPvO2vrMVOIUEOJ6PBqLVrC6ionvnQUPkBi', '112233', 'user', 0),
-(10, 'rahmanbunerwal91@gmail.com', '$2y$10$5AYELZkDtg1X6Dqn955Y7O.67RShZE/xbrUdtuOetm3GFzdSkBJoe', '223311', 'superAdmin', 1),
-(11, 'admin@gmail.com', '$2y$10$twJmP2K4Lz/fS7FSTx.I9O45lmy1E1.tdCy36H7sroD.wxf/GNfnG', '033212345678', 'superAdmin', 0),
-(12, 'a@gmail.com', '$2y$10$71tyS69xRHN1YC9uZDlgU.Iqs/1IZRRUjLXKflvMqLR85u.gPToU.', '123', 'user', 0),
-(13, 'sarzaminkha101@gmail.com', '$2y$10$HqyZ7QtAfDjV/3enK5eNC.7lZUIMwY.0jtLqfYWVB/nqJxMgzl.vG', '03339699890', 'superAdmin', 0);
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `contact`, `role`, `status`) VALUES
+(7, '', 'bakhtmuner06@gmail.com', '$2y$10$u9V4Dq2raH3WawD.pFpHm./GS2A2pfmmNACYuZ8UIMkFybBQI/jB.', '03329611333', 'superAdmin', 1),
+(8, '', 'sarzamin@gmail.com', '$2y$10$VzTeq42woU.r4zjXtpAed.SQBvN43hIDEbrnSV05xWZPDsJss6F1.', '123', 'subAdmin', 1),
+(9, '', 'rahman@gmail.com', '$2y$10$daesP1ugLHBUiP4fJkHPvO2vrMVOIUEOJ6PBqLVrC6ionvnQUPkBi', '112233', 'user', 1),
+(10, '', 'rahmanbunerwal91@gmail.com', '$2y$10$5AYELZkDtg1X6Dqn955Y7O.67RShZE/xbrUdtuOetm3GFzdSkBJoe', '223311', 'superAdmin', 1),
+(11, '', 'admin@gmail.com', '$2y$10$twJmP2K4Lz/fS7FSTx.I9O45lmy1E1.tdCy36H7sroD.wxf/GNfnG', '033212345678', 'superAdmin', 0),
+(12, '', 'a@gmail.com', '$2y$10$71tyS69xRHN1YC9uZDlgU.Iqs/1IZRRUjLXKflvMqLR85u.gPToU.', '123', 'user', 0),
+(13, '', 'sarzaminkha101@gmail.com', '$2y$10$HqyZ7QtAfDjV/3enK5eNC.7lZUIMwY.0jtLqfYWVB/nqJxMgzl.vG', '03339699890', 'superAdmin', 0);
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,7 @@ CREATE TABLE `algue` (
   `upload_date` date NOT NULL DEFAULT current_timestamp(),
   `description` varchar(255) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `algue`
@@ -117,14 +118,33 @@ CREATE TABLE `angiosperms` (
   `upload_date` date NOT NULL,
   `description` varchar(255) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `angiosperms`
 --
 
 INSERT INTO `angiosperms` (`id`, `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) VALUES
-(1, 'Rosa indica', 'Magnoliopsida', 'Rosaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '1', '2023', '2023-08-12', 'Rosa cymosa is a species of climbing rose native to China, where it grows from the east coast in Fujian to western Sichuan at up to 1300 m, in warm areas in scrub and gorges, and in bamboo plantations. It is sometimes called the elderflower rose as its fl', '1.jpg');
+(1, 'Rosa indica', 'Magnoliopsida', 'Rosaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '1', '2023', '2023-08-12', 'Rosa cymosa is a species of climbing rose native to China, where it grows from the east coast in Fujian to western Sichuan at up to 1300 m, in warm areas in scrub and gorges, and in bamboo plantations. It is sometimes called the elderflower rose as its fl', '1.jpg'),
+(2, 'Tulipa gesneriana', 'Liliopsida', 'Liliaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '2', '2023', '2023-08-21', 'Tulipa gesneriana, the Didier\'s tulip or garden tulip, is a species of plant in the lily family, cultivated as an ornamental in many countries because of its large, showy flowers. This tall, late-blooming species has a single blooming flower and linear or', '2.jpg'),
+(3, 'Zea mays', 'Liliopsida', 'Poaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '3', '2023', '2023-08-21', 'Zea is a genus of flowering plants in the grass family. The best-known species is Z. mays (variously called maize, corn, or Indian corn), one of the most important crops for human societies throughout much of the world. The four wild species are commonly ', '3.jpg'),
+(4, 'Prunus persica', 'Magnoliopsida', 'Rosaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '4', '2023', '2023-08-21', 'Prunus persica', '4.jpg'),
+(5, 'Oryza sativa', 'Liliopsida', 'Poaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '5', '2023', '2023-08-21', 'Oryza sativa, commonly known as rice, is the plant species most commonly referred to in English as rice. It is the type of farmed rice whose cultivars are most common globally, and was first domesticated in the Yangtze River basin in China 13,500 to 8,200', '5.jpg'),
+(6, 'Solanum lycopersicum', ' Magnoliopsida', 'Solanaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '6', '2023', '2023-08-21', 'The tomato is the edible berry of the plant Solanum lycopersicum, commonly known as the tomato plant. The species originated in western South America, ', '6.jpg'),
+(7, 'Citrus sinensis', 'Magnoliopsida', 'Rutaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '7', '2023', '2023-08-21', 'Citrus × sinensis, a hybrid between pomelo and mandarin, also known as the sweet oranges, is a commonly cultivated species of orange that includes Valencia oranges, blood oranges and navel oranges.', '7.jpg'),
+(8, 'Lavandula angustifolia', 'Magnoliopsida', 'Lamiaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '8', '2023', '2023-08-21', 'Lavandula angustifolia, formerly L. officinalis, is a flowering plant in the family Lamiaceae, native to the Mediterranean. Its common names include lavender, true lavender and English lavender; also garden lavender, common lavender and narrow-leaved lave', '8.jpg'),
+(9, 'Cucurbita pepo', 'Magnoliopsida', 'Cucurbitaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '9', '2023', '2023-08-21', 'Cucurbita pepo is a cultivated plant of the genus Cucurbita. It yields varieties of winter squash and pumpkin, but the most widespread varieties belong to the subspecies Cucurbita pepo subsp. pepo, called summer squash. It has been domesticated in the Ame', '9.jpg'),
+(10, 'Malus domestica', 'Magnoliopsida', 'Rosaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '10', '2023', '2023-08-21', 'An apple is a round, edible fruit produced by an apple tree. Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found.', '10.jpg'),
+(11, 'Vitis vinifera', 'Magnoliopsida', 'Vitaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '11', '2023', '2023-08-21', 'Vitis vinifera, the common grape vine, is a species of flowering plant, native to the Mediterranean region, Central Europe, and southwestern Asia, from Morocco and Portugal north to southern Germany and east to northern Iran.', '11.jpg'),
+(12, 'Coffea arabica', 'Magnoliopsida', 'Rubiaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '12', '2023', '2023-08-21', 'Coffea arabica, also known as the Arabic coffee, is a species of flowering plant in the coffee and madder family Rubiaceae. It is believed to be the first species of coffee to have been cultivated and is currently the dominant cultivar, representing about', '12.jpg'),
+(13, 'Helianthus annuus', 'Magnoliopsida', 'Asteraceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '13', '2023', '2023-08-21', 'The common sunflower is a species of large annual forb of the genus Helianthus. It is commonly grown as a crop for its edible oily seeds. Apart from cooking oil production, it is also used as livestock forage, as bird food, in some industrial applications', '13.jpg'),
+(14, 'Brassica oleracea', 'Magnoliopsida', 'Brassicaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '14', '2023', '2023-08-21', 'Brassica oleracea is a plant species from family Brassicaceae that includes many common cultivars used as vegetables, such as cabbage, broccoli, cauliflower, kale, Brussels sprouts, collard greens, Savoy cabbage, kohlrabi, and gai lan. ', '14.jpg'),
+(15, 'Fragaria x ananassa', 'Magnoliopsida', 'Rosaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '15', '2023', '2023-08-21', 'Fragaria x ananassa', '15.jpg'),
+(16, 'Musa paradisiaca', 'Liliopsida', 'Musaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '16', '2023', '2023-08-21', 'Musa × paradisiaca is the accepted name for the hybrid between Musa acuminata and Musa balbisiana. Most cultivated bananas and plantains are triploid cultivars either of this hybrid or of M. acuminata alone.', '16.jpg'),
+(17, 'Nicotiana tabacum', 'Magnoliopsida', 'Solanaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '17', '2023', '2023-08-21', 'Nicotiana tabacum, or cultivated tobacco, is an annually grown herbaceous plant of the genus Nicotiana. N. tabacum is the most commonly grown species in the genus Nicotiana, as the plant\'s leaves are commercially harvested to be processed into tobacco for', '17.jpg'),
+(18, 'Phaseolus vulgaris', 'Magnoliopsida', 'Fabaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '18', '2023', '2023-08-21', 'Phaseolus vulgaris, the common bean, is a herbaceous annual plant grown worldwide for its edible dry seeds or green, unripe pods. Its leaf is also occasionally used as a vegetable and the straw as fodder. Its botanical classification, along with other Pha', '18.jpg'),
+(19, 'Mentha piperita', 'Magnoliopsida', 'Lamiaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '19', '2023', '2023-08-21', 'Peppermint is a hybrid species of mint, a cross between watermint and spearmint. Indigenous to Europe and the Middle East, the plant is now widely spread and cultivated in many regions of the world. It is occasionally found in the wild with its parent spe', '19.jpg'),
+(20, 'Salvia officinalis', 'Magnoliopsida', 'Lamiaceae', 'Angiosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '20', '2023', '2023-08-21', 'Salvia officinalis, the common sage or sage, is a perennial, evergreen subshrub, with woody stems, grayish leaves, and blue to purplish flowers. It is a member of the mint family Lamiaceae and native to the Mediterranean region, though it has been natural', '20.jpg');
 
 -- --------------------------------------------------------
 
@@ -146,7 +166,7 @@ CREATE TABLE `bryophytes` (
   `upload_date` date NOT NULL,
   `description` varchar(255) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `bryophytes`
@@ -193,7 +213,7 @@ CREATE TABLE `fungi` (
   `upload_date` date NOT NULL DEFAULT current_timestamp(),
   `description` varchar(255) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `fungi`
@@ -216,7 +236,10 @@ INSERT INTO `fungi` (`id`, `botanical`, `synonyams`, `family`, `group`, `country
 (14, 'Saccharomyces cerevisiae', 'Saccharomycetes', 'Saccharomycetaceae', 'Fungi', 'Pakistan', 'KPK', 'Rizwan Ullah', '16', '2023', '2023-08-08', 'Rhizopus stolonifer is commonly known as black bread mold. It is a member of Zygomycota and considered the most important species in the genus Rhizopus. It is one of the most common fungi in the world and has a global distribution although it is most comm', '16.jpg'),
 (15, 'Taphrina deformans', 'Taphrinomycetes', 'Taphrinaceae', 'Fungi', 'Pakistan', 'KPK', 'Rizwan Ullah', '17', '2023', '2023-08-08', 'Rhizopus stolonifer is commonly known as black bread mold. It is a member of Zygomycota and considered the most important species in the genus Rhizopus. It is one of the most common fungi in the world and has a global distribution although it is most comm', '17.jpg'),
 (16, 'Trichoderma viride', 'Sordariomycetes', 'Hypocreaceae', 'Fungi', 'Pakistan', 'KPK', 'Rizwan Ullah', '18', '2023', '2023-08-08', 'Trichoderma viride is a fungus and a biofungicide. It is used for seed- and soil treatment for suppression of various diseases caused by fungal pathogens', '18.jpg'),
-(17, 'Ustilago maydis', 'Ustilaginaceae', 'Ustilaginaceae', 'Fungi', 'Pakistan', 'KPK', 'Rizwan Ullah', '19', '2023', '2023-08-08', 'The Ustilaginaceae are a family of smut fungi in the order Ustilaginomycetes. Collectively, the family contains 17 genera and 607 species.', '19.jpg');
+(17, 'Ustilago maydis', 'Ustilaginaceae', 'Ustilaginaceae', 'Fungi', 'Pakistan', 'KPK', 'Rizwan Ullah', '19', '2023', '2023-08-08', 'The Ustilaginaceae are a family of smut fungi in the order Ustilaginomycetes. Collectively, the family contains 17 genera and 607 species.', '19.jpg'),
+(18, 'Coprinus comatus', 'Agaricomycetes', 'Psathyrellaceae', 'Fungi', 'Pakistan', 'KPK', 'Rizwan Ullah', '5', '2023', '2023-08-21', 'Coprinus comatus, the shaggy ink cap, lawyer\'s wig, or shaggy mane, is a common fungus often seen growing on lawns, along gravel roads and waste areas. The young fruit bodies first appear as white cylinders emerging from the ground, then the bell-shaped c', '5.jpg'),
+(19, 'Neurospora crassa', 'Sordariomycetes', 'Sordariaceae', 'Fungi', 'Pakistan', 'KPK', 'Rizwan Ullah', '11', '2023', '2023-08-21', 'Neurospora crassa is a type of red bread mold of the phylum Ascomycota. The genus name, meaning \'nerve spore\' in Greek, refers to the characteristic striations on the spores. The first published account of this fungus was from an infestation of French bak', '11.jpg'),
+(20, 'Xylaria polymorpha', 'Sordariomycetes', 'Xylariaceae', 'Fungi', 'Pakistan', 'KPK', 'Rizwan Ullah', '20', '2023', '2023-08-21', 'Xylaria polymorpha, commonly known as dead man\'s fingers, is a saprobic fungus. It is a common inhabitant of forest and woodland areas, usually growing from the bases of rotting or injured tree stumps and decaying wood.', '20.jpg');
 
 -- --------------------------------------------------------
 
@@ -238,14 +261,13 @@ CREATE TABLE `gymnosperms` (
   `upload_date` date NOT NULL,
   `description` varchar(255) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `gymnosperms`
 --
 
 INSERT INTO `gymnosperms` (`id`, `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) VALUES
-(1, 'Pinus sylvestris', 'Pinopsida', 'Pinaceae', 'Gymnosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '1', '2023', '2023-08-10', 'Pinus sylvestris, the Scots pine, Scotch pine or Baltic pine, is a species of tree in the pine family Pinaceae that is native to Eurasia. It can readily be identified by its combination of fairly short, blue-green leaves and orange-red bark.', '1.jpg'),
 (2, 'Picea abies', 'Pinopsida', 'Pinaceae', 'Gymnosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '2', '2023', '2023-08-10', 'Picea abies, the Norway spruce or European spruce, is a species of spruce native to Northern, Central and Eastern Europe. It has branchlets that typically hang downwards, and the largest cones of any spruce, 9–17 cm long.', '2.jpg'),
 (3, 'Cycas revoluta', 'Cycadopsida', 'Cycadaceae', 'Gymnosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '3', '2023', '2023-08-10', 'Cycas revoluta is a species of gymnosperm in the family Cycadaceae, native to southern Japan including the Ryukyu Islands. It is one of several species used for the production of sago, as well as an ornamental plant. The sago cycad can be distinguished by', '3.jpg'),
 (4, 'Ginkgo biloba', 'Ginkgoopsida', 'Ginkgoaceae', 'Gymnosperm', 'Pakistan', 'KPK', 'Rizwan Ullah', '4', '2023', '2023-08-10', 'Ginkgo biloba, commonly known as ginkgo or gingko, also known as the maidenhair tree, is a species of gymnosperm tree native to China. It is the last living species in the order Ginkgoales, which first appeared over 290 million years ago.', '4.jpg'),
@@ -285,7 +307,7 @@ CREATE TABLE `lichens` (
   `upload_date` date NOT NULL,
   `description` varchar(1200) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `lichens`
@@ -332,7 +354,7 @@ CREATE TABLE `pteridophytes` (
   `upload_date` date NOT NULL,
   `description` varchar(255) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pteridophytes`
@@ -367,7 +389,7 @@ CREATE TABLE `user_otp` (
   `email` varchar(100) NOT NULL,
   `otp` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -447,7 +469,7 @@ ALTER TABLE `algue`
 -- AUTO_INCREMENT for table `angiosperms`
 --
 ALTER TABLE `angiosperms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `bryophytes`
@@ -459,7 +481,7 @@ ALTER TABLE `bryophytes`
 -- AUTO_INCREMENT for table `fungi`
 --
 ALTER TABLE `fungi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `gymnosperms`
