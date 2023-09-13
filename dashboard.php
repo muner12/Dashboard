@@ -10,9 +10,9 @@ $total_algee=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as co
 $total_fungi=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from fungi"));
 $total_angiosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from angiosperms"));
 $total_gymnosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from gymnosperms"));
-$total_gymnosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from bryophytes"));
-$total_gymnosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from pteridophytes"));
-$total_gymnosperm=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from lichens"));
+$total_bryophytes=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from bryophytes"));
+$total_pteridophytes=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from pteridophytes"));
+$total_lichens=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from lichens"));
 ?>
 <div class="jumbotron">
     <div class="row d-flex justify-content-center">
