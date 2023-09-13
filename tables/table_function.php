@@ -20,7 +20,7 @@ function showTable($tableName,$con,$ROOT,$path){
         <!-- Table -->
         <table class="table table-hover table-striped table-bordered table-font">
             <thead class="bg-secondary">
-                <th>id</th>
+                <th>S#</th>
                 <th>Botinical Name</th>
                 <th>synonyams</th>
                 <th>family</th>
@@ -57,12 +57,13 @@ function showTable($tableName,$con,$ROOT,$path){
     $page_first_result = ($page-1) * $results_per_page;  
   
     //retrieve the selected results from database   
-    $query = "SELECT *FROM {$tableName} LIMIT " . $page_first_result . ',' . $results_per_page;  
+    $query = "SELECT *FROM {$tableName} order by collection_number asc LIMIT ". $page_first_result . ',' . $results_per_page;  
     $result = mysqli_query($con, $query);  
+    $i=0;
     while($row=mysqli_fetch_assoc($result)){
         echo "<tr>
 
-        <td>".$row['id']."</td>
+        <td>".++$i."</td>
         <td>".$row['botanical']."</td>
         <td>".$row['synonyams']."</td>
         <td>".$row['family']."</td>

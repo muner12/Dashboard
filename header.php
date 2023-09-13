@@ -96,8 +96,7 @@ if(isset($_POST['logout'])){
        $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where email ='{$_SESSION['user']}'"));
        echo $row['name']."-".ucfirst($row['role']);
        ?>  
-       <select>
-       <option>1</option> 
+       
        </select>
         </p> 
       <button class="btn btn-outline-danger my-2 my-sm-0" name="logout"  type="submit">Logout</button>
