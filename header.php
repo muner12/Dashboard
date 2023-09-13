@@ -88,9 +88,18 @@ if(isset($_POST['logout'])){
         <?PHP }?>
       </li>
     </ul>
-    <form method="post" class="form-inline my-2 my-lg-0">
+    <form method="post" class="form-inline my-2 d-flex align-items-baseline  my-lg-0">
      <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-
+       <p class="mr-5 text-white ">
+       <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+       <?php
+       $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where email ='{$_SESSION['user']}'"));
+       echo $row['name']."-".ucfirst($row['role']);
+       ?>  
+       <select>
+       <option>1</option> 
+       </select>
+        </p> 
       <button class="btn btn-outline-danger my-2 my-sm-0" name="logout"  type="submit">Logout</button>
      
       <!-- <input class="btn btn-mute" name="logout" type="submit" value="logout">

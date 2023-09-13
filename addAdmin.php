@@ -20,16 +20,17 @@ if($type=='active'){
 
 if(isset($_POST['add']))
 {
+    $name=$_POST['name'];
    $email=$_POST['email'];
    $contact=$_POST['contact'];
    $password=password_hash($_POST['password'],PASSWORD_DEFAULT);
    $role=$_POST['role'];
 
-    if($email=='' ||$contact=='' || $password==''|| $role==''){
+    if($email=='' ||$contact=='' || $password==''|| $role=='' || $name==''){
         echo '<script>alert("all Fields are Required!!!");</script>';
         
     }else{
-        $sql="insert into admin(email,contact,password,role) values('$email','$contact','$password','$role')";
+        $sql="insert into admin(name,email,contact,password,role) values('$name','$email','$contact','$password','$role')";
 
    $check_user=mysqli_query($con,"select * from admin where email='$email'");
    if(mysqli_num_rows($check_user)>0){
@@ -57,7 +58,7 @@ if(isset($_POST['add']))
   <strong>One!</strong> Record deleted Successfully.
 </div>
 <?php } ?>
-    <!-- Modal -->
+    <!-- Add Admin Modal -->
 <div class="d-flex justify-content-center text-success"><h3>Add Admin</h3></div>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -72,7 +73,13 @@ if(isset($_POST['add']))
                 <div class="modal-body">
                     <form method="post">
                         <div>
+                            
+                        <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name"  placeholder="Name"
+                                    autocomplete="off">
 
+                            </div>
                             <div class="form-group">
                                 <label for="name">Email</label>
                                 <input type="email" class="form-control" name="email"  placeholder="email"
@@ -103,7 +110,7 @@ if(isset($_POST['add']))
                                     <option>----Select</option>
                                     <option value="superAdmin">Super Admin</option>
                                     <option value="subAdmin">Sub Admin</option>
-                                    <option value="user">User</option>
+                                 
 
                                 </select>
                             </div>
@@ -143,6 +150,7 @@ if(isset($_POST['add']))
                     <table class="table table-hover table-condensed">
                         <thead class="bg-secondary">
                             <th>id</th>
+                            <th>Name</th>
                             <th>email</th>
                             <th>contact</th>
                             <th>Role</th>
@@ -181,7 +189,9 @@ if(isset($_POST['add']))
                                             continue;
                                         }
                                         echo "<tr>";
+                                       
                                         echo "<td>".$row['id']."</td>";
+                                        echo "<td>".$row['name']."</td>";
                                         echo "<td>".$row['email']."</td>";
                                         echo "<td >".$row['contact']."</td>";
                                         if($row['role']=='superAdmin'){

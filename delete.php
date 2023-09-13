@@ -43,7 +43,7 @@ if(isset($_POST['delete-btn'])){
                     </button>
                 </div>
                 <div class="modal-body">
-                    Are You Sure To Delete <strong>'<?PHP if(isset($_G['id'])){
+                    Are You Sure To Delete <strong>'<?PHP if(isset($_GET['id'])){
                         echo  $row['email'];
                     }else echo $row['botanical']?>'</strong>
                 </div>
