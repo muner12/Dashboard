@@ -33,7 +33,7 @@ if(isset($_POST['insert'])){
    
     $sql="INSERT INTO `pteridophytes` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-    move_uploaded_file($picture_tempname,"upload/Pteridophytes/$picture_name");
+    move_uploaded_file($picture_tempname,"upload/Pteridophyte/$picture_name");
     $result=mysqli_query($con,$sql);
 
 if($result==1){
@@ -56,7 +56,7 @@ if(isset($_GET['type']) && $_GET['type']=='update'){
 
 $fetch_one_row=[];
 if(isset($_GET['type']) && $_GET['type']=='update'){
-    $fetch_one_row=mysqli_fetch_assoc(mysqli_query($con,"select * from pteridophytes where id={$_GET['id']}"));
+    $fetch_one_row=mysqli_fetch_assoc(mysqli_query($con,"select * from pteridophytes  where id={$_GET['id']}"));
    
    
 }
@@ -134,15 +134,15 @@ if($result==1){
                 <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                 <li class="breadcrumb-item active">
                    <?PHP if($update_text=="update") { ?> <a>update pteridophytes</a><?php } else { ?>
-                    <a>Add pteridophytes</a><?PHP }?>
+                    <a>Add Pteridophytes</a><?PHP }?>
                 </li>
                 
             </ol>
         </nav>
         <!-- end bread Crumb -->
         <div class="roboto d-flex justify-content-center">
-            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update pteridophytes</a><?php } else { ?>
-                    <a>Add pteridophytes</a><?PHP }?></h3>
+            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update Pteridophytes</a><?php } else { ?>
+                    <a>Add Pteridophytes</a><?PHP }?></h3>
         </div>
         <form method="post" enctype="multipart/form-data">
 
@@ -239,7 +239,7 @@ if($result==1){
                     
                     ?>
                     <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>
-                    <?PHP } ?> 
+                        <?PHP } ?>
                         </div>
             </div>
             

@@ -25,7 +25,7 @@ if(isset($_POST['insert'])){
     $picture_name=$_FILES['Picture']['name'];
     $picture_tempname=$_FILES['Picture']['tmp_name'];
 
-    $check_recored=mysqli_query($con,"select * lichens where botanical='$botincal'");
+    $check_recored=mysqli_query($con,"select * from lichens where botanical='$botincal'");
     if( mysqli_num_rows($check_recored)>0){
         echo '<script>alert("This Recored exist in the Database!!!")</script>';
     }else{
@@ -134,15 +134,15 @@ if($result==1){
                 <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                 <li class="breadcrumb-item active">
                    <?PHP if($update_text=="update") { ?> <a>update lichens</a><?php } else { ?>
-                    <a>Add lichens</a><?PHP }?>
+                    <a>Add Lichens</a><?PHP }?>
                 </li>
                 
             </ol>
         </nav>
         <!-- end bread Crumb -->
         <div class="roboto d-flex justify-content-center">
-            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update lichens</a><?php } else { ?>
-                    <a>Add lichens</a><?PHP }?></h3>
+            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update Lichens</a><?php } else { ?>
+                    <a>Add Lichens</a><?PHP }?></h3>
         </div>
         <form method="post" enctype="multipart/form-data">
 
@@ -237,10 +237,9 @@ if($result==1){
                     if(isset($_GET['type']) && $_GET['type']=='update'){
                         echo "<img width='100px' height='60px' src='upload/lichens/{$fetch_one_row['picture']}'>";
                     
-                    
                     ?>
                     <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>
-                    <?php } ?>
+                        <?PHP } ?>
                         </div>
             </div>
             

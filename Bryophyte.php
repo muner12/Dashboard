@@ -33,7 +33,7 @@ if(isset($_POST['insert'])){
    
     $sql="INSERT INTO `bryophytes` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-    move_uploaded_file($picture_tempname,"upload/bryophytes/$picture_name");
+    move_uploaded_file($picture_tempname,"upload/Bryophyte/$picture_name");
     $result=mysqli_query($con,$sql);
 
 if($result==1){
@@ -90,7 +90,7 @@ if(isset($_POST['update'])){
         $picture_name=$_FILES['Picture']['name'];
         
         $picture_tempname=$_FILES['Picture']['tmp_name'];
-        move_uploaded_file($picture_tempname,"upload/bryophytes/$picture_name");
+        move_uploaded_file($picture_tempname,"upload/Bryophyte/$picture_name");
     }else{
         $picture_name=$db_picture;
        
@@ -134,15 +134,15 @@ if($result==1){
                 <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                 <li class="breadcrumb-item active">
                    <?PHP if($update_text=="update") { ?> <a>update bryophytes</a><?php } else { ?>
-                    <a>Add bryophytes</a><?PHP }?>
+                    <a>Add Bryophytes</a><?PHP }?>
                 </li>
                 
             </ol>
         </nav>
         <!-- end bread Crumb -->
         <div class="roboto d-flex justify-content-center">
-            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update bryophytes</a><?php } else { ?>
-                    <a>Add bryophytes</a><?PHP }?></h3>
+            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update Bryophytes</a><?php } else { ?>
+                    <a>Add Bryophytes</a><?PHP }?></h3>
         </div>
         <form method="post" enctype="multipart/form-data">
 
@@ -235,11 +235,11 @@ if($result==1){
                     
                     <?php
                     if(isset($_GET['type']) && $_GET['type']=='update'){
-                        echo "<img width='100px' height='60px' src='upload/bryophyte/{$fetch_one_row['picture']}'>";
+                        echo "<img width='100px' height='60px' src='upload/Bryophyte/{$fetch_one_row['picture']}'>";
                     
                     ?>
                     <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>
-                    <?PHP } ?> 
+                        <?PHP } ?>
                         </div>
             </div>
             
