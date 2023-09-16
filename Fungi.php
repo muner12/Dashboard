@@ -141,7 +141,7 @@ if($result==1){
         </nav>
         <!-- end bread Crumb -->
         <div class="roboto d-flex justify-content-center">
-            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update Algae</a><?php } else { ?>
+            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update Fungi</a><?php } else { ?>
                     <a>Add Fungi</a><?PHP }?></h3>
         </div>
         <form method="post" enctype="multipart/form-data">
