@@ -1,4 +1,3 @@
-
 <?php
 require("db_connection/connection.php");
 include("constants.php");

@@ -1,7 +1,4 @@
 <?php
-
-
-
 function encrypt($simple_string){
     
 // Storing a string into the variable which
@@ -52,4 +49,3 @@ return $decryption;
 
 }
 
-?>

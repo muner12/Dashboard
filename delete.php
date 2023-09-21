@@ -1,8 +1,8 @@
-<?PHP
-
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include("header.php");
 include("functions.php");
-
 if(isset($_GET['id']) || isset($_GET['speciesId'])  && isset($_GET['table']) && isset($_GET['path']) ){
     $path=isset($_GET['id'])?$_GET['path']:"tables/".$_GET['path'];
     
@@ -21,12 +21,12 @@ if(isset($_POST['delete-btn'])){
     $id=isset($_GET['id'])?$_GET['id']:$_GET['speciesId'];
 
     $result=mysqli_query($con,"delete from $tableName where id={$id}");
-
-    header("location:$path.php?success=yes");
-}
-
-
+    //echo "<script>location.replace($path.'.php?success=yes')</script>";
+    echo '<script>window.location.href = "' . $path . '.php?success=yes";</script>';
+    exit(); // Ensure that no further code execution occurs
+}  
 ?>
+
 <div class="" style="margin-top:600px;">
 
 
