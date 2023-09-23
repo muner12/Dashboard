@@ -53,7 +53,7 @@ if(isset($_POST['updatePass']))
 
     <!--	Title
 	=========================================================-->
-    <title>Forggot Password</title>
+    <title>Forgot Password</title>
 </head>
 
 <body>
