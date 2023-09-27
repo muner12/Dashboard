@@ -89,17 +89,45 @@ if(isset($_POST['logout'])){
     </ul>
     <form method="post" class="form-inline my-2 d-flex align-items-baseline  my-lg-0">
      <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-       <p class="mr-5 text-white ">
-       <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+       <!-- <p class="mr-5 text-white ">
+       <i class="fa-solid fa-user"  style="color: #ffffff;"></i>
        <?php
-       $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where email ='{$_SESSION['user']}'"));
-       echo $row['name']."-".ucfirst($row['role']);
-       ?>  
+      //  $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where email ='{$_SESSION['user']}'"));
+      //  echo $row['name']."-".ucfirst($row['role']);
+      //  ?>  
        
-       </select>
-        </p> 
-      <button class="btn btn-outline-danger my-2 my-sm-0" name="logout"  type="submit">Logout</button>
      
+        </p>  -->
+
+        <ul class="navbar-nav mr-5 pr-5">
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          
+           <?PHP
+        $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where email='{$_SESSION['user']}'"));
+          
+        if(isset($row['image'])){
+         echo "<image src='upload/user/" . $row['image'] . "' width='30' height='30'>";
+
+       }else{
+         echo "<image src='upload/user/default.png' width='30' height='30'>";
+        }
+        ?>
+         
+        
+      
+        </a>
+        <div class="dropdown-menu">
+        <a href="profail.php" class=" dropdown-item my-2 my-sm-0">Profail</a>
+        
+        <button class=" dropdown-item my-2 my-sm-0 text-danger" name="logout"  type="submit">Logout</button>
+       
+          <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+      </li>
+        </ul>
+     
+      
       <!-- <input class="btn btn-mute" name="logout" type="submit" value="logout">
      -->
     </form>

@@ -11,9 +11,30 @@ $(document).ready(function () {
     // Display search history
     function displayHistory() {
         searchHistory.empty();
-        history.slice(-5).forEach(query => {
+        let newHistory = history.slice(-5);
+        newHistory.forEach(query => { // Use 'newHistory' here
             searchHistory.append(`<li>${query}</li>`);
         });
+    }
+
+    // Function to display recommended species
+    function displayRecommendedSpecies(species) {
+        species = JSON.parse(species);
+        const recommendedSpeciesContainer = $('#recommendedSpecies');
+        recommendedSpeciesContainer.empty();
+        console.log(species);
+        const maxSpeciesToDisplay = 5; // Change this number as needed
+
+        if (species.length > 0) {
+            recommendedSpeciesContainer.append('<h2>Recommended Species</h2>');
+            species.slice(0, maxSpeciesToDisplay).forEach(species => {
+                recommendedSpeciesContainer.append('<div class="border result-item">' +
+                    '<strong>Botanical:</strong> ' + species.botanical + '<br>' +
+                    '<strong>Synonyms:</strong> ' + species.synonyms + '<br>' +
+                    '<strong>Family:</strong> ' + species.family +
+                    '</div>');
+            });
+        }
     }
 
     // Handle search input
@@ -22,7 +43,7 @@ $(document).ready(function () {
         if (query.length >= 3) {
             // Send the query to the server using AJAX
             $.ajax({
-                url: 'search.php', // Replace with your server-side script
+                url: 'search.php',
                 method: 'POST',
                 data: { query: query },
                 success: function (data) {
@@ -34,97 +55,22 @@ $(document).ready(function () {
             history.push(query);
             localStorage.setItem('searchHistory', JSON.stringify(history));
             displayHistory();
+
+            // Send the search history to the server to get recommended species
+            $.ajax({
+                url: 'search_history_recommendations.php',
+                method: 'POST',
+                data: { searchHistory: JSON.stringify(history) },
+                success: function (data) {
+                    displayRecommendedSpecies(data);
+                }
+            });
         } else {
+            // Clear search results when query length is less than 3
             searchResults.empty();
         }
     });
 
-    // Initial display of search history
+    // Initial display of search history (only call this once)
     displayHistory();
-
-
-
-// Function to display recommended species
-function displayRecommendedSpecies(species) {
- species = JSON.parse(species);
-    const recommendedSpeciesContainer = $('#recommendedSpecies');
-    recommendedSpeciesContainer.empty();
-    console.log(species);
-    const maxSpeciesToDisplay = 5; // Change this number as needed
-
-    if (species.length > 0) {
-        recommendedSpeciesContainer.append('<h2>Recommended Species</h2>');
-        species.slice(0, maxSpeciesToDisplay).forEach(species => {
-            recommendedSpeciesContainer.append('<div class="border result-item">' +
-                '<strong>Botanical:</strong> ' + species.botanical + '<br>' +
-                '<strong>Synonyms:</strong> ' + species.synonyams + '<br>' +
-                '<strong>Family:</strong> ' + species.family +
-                '</div>');
-        });
-    }
-}
-
-// Handle search input
-
-
-searchInput.on('input', function () {
-    const query = $(this).val();
-    if (query.length >= 3) {
-        // Send the query to the server using AJAX
-        $.ajax({
-            url: 'search.php',
-            method: 'POST',
-            data: { query: query },
-            success: function (data) {
-                searchResults.html(data);
-            }
-        });
-
-        // Update search history
-        history.push(query);
-        localStorage.setItem('searchHistory', JSON.stringify(history));
-        displayHistory();
-
-        // Send the search history to the server to get recommended species
-        $.ajax({
-            url: 'search_history_recommendations.php',
-            method: 'POST',
-            data: { searchHistory: JSON.stringify(history) },
-            success: function (data) {
-                
-                displayRecommendedSpecies(data);
-            }
-        });
-    } else {
-        const searchResults = $('#searchResults');
-
-        searchResults.empty();
-    }
 });
-
-
-
-
-
-});
-// Add this code to your script.js file
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
