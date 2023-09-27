@@ -14,8 +14,8 @@ $total_bryophytes=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) 
 $total_pteridophytes=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from pteridophytes"));
 $total_lichens=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from lichens"));
 ?>
-<div class="jumbotron">
-    <div class="row d-flex justify-content-center">
+<div class="jumbotron border">
+    <div class="row border d-flex justify-content-center">
 
         <!-- Algae -->
 
@@ -118,6 +118,10 @@ $total_lichens=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as 
 
 </div>
 </div>
+</div>
+</div>
+</<div>
+  
 </div>
 <?php
 require("footer.php");

@@ -33,7 +33,7 @@ if(isset($_POST['insert'])){
    
     $sql="INSERT INTO `pteridophytes` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
-    move_uploaded_file($picture_tempname,"upload/Pteridophyte/$picture_name");
+    move_uploaded_file($picture_tempname,"upload/Pteridophytes/$picture_name");
     $result=mysqli_query($con,$sql);
 
 if($result==1){
@@ -235,7 +235,7 @@ if($result==1){
                     
                     <?php
                     if(isset($_GET['type']) && $_GET['type']=='update'){
-                        echo "<img width='100px' height='60px' src='upload/Pteridophyte/{$fetch_one_row['picture']}'>";
+                        echo "<img width='100px' height='60px' src='upload/Pteridophytes/{$fetch_one_row['picture']}'>";
                     
                     ?>
                     <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>
