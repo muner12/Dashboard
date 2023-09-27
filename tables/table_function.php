@@ -4,7 +4,7 @@ include('../functions.php');
 
 function showTable($tableName,$con,$ROOT,$path){
     $arr=encrypt($tableName);
-  
+    $arr=urlencode($arr);
    
 ?>
 
@@ -59,7 +59,12 @@ function showTable($tableName,$con,$ROOT,$path){
     //retrieve the selected results from database   
     $query = "SELECT *FROM {$tableName} order by collection_number asc LIMIT ". $page_first_result . ',' . $results_per_page;  
     $result = mysqli_query($con, $query);  
+    $count=mysqli_num_rows(mysqli_query($con,"select * from {$tableName} "));
+   
     $i=0;
+    if(isset($_GET['page']) && $_GET['page']!=1){
+    $i=mysqli_num_rows($result);
+    }
     while($row=mysqli_fetch_assoc($result)){
         echo "<tr>
 
@@ -73,7 +78,7 @@ function showTable($tableName,$con,$ROOT,$path){
         <td>".$row['collection_number']."</td>
         <td>".$row['year']."</td>
         <td><img width='50px' height='35px' src='../upload/{$path}/{$row['picture']}'></td>
-        <td> <a class='btn btn-sm btn-outline-danger' href='../delete.php?speciesId={$row['id']}&path={$path}&table={$arr}}'><i class='fa fa-trash'></i></a></td>
+        <td> <a class='btn btn-sm btn-outline-danger' href='../delete.php?speciesId={$row['id']}&path={$path}&table={$arr}'><i class='fa fa-trash'></i></a></td>
         <td><a class='btn btn-sm btn-outline-primary' href='{$ROOT}/{$path}.php?id={$row['id']}&type=update'><i class='fa fa-pencil'></i></a></td>
         </tr>";
     }

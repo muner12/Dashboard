@@ -5,11 +5,9 @@ include("header.php");
 include("functions.php");
 if(isset($_GET['id']) || isset($_GET['speciesId'])  && isset($_GET['table']) && isset($_GET['path']) ){
     $path=isset($_GET['id'])?$_GET['path']:"tables/".$_GET['path'];
-    
-    $arr=explode("@#@",$_GET['table']);
-    
-    $tableName=decrypt($arr[0]);
-    
+
+    $tableName=decrypt($_GET['table']);
+   
     if(isset($_GET['id'])){
         $row=mysqli_fetch_assoc(mysqli_query($con,"select * from $tableName where id={$_GET['id']}"));
 

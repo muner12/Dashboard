@@ -25,7 +25,7 @@ $encryption_key = "W3docs";
 $encryption = openssl_encrypt($simple_string, $ciphering, $encryption_key, $options, $encryption_iv);
 
 // Displaying the encrypted string
-return $encryption."#@#daesP1ugLHBUiP4fJkHPvO2vrMVOIUEOJ6PBqLVrC6ionvnQUPkBi";
+return $encryption;
 
 }
 
