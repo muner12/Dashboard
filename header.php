@@ -110,7 +110,7 @@ if(isset($_POST['logout'])){
          echo "<image src='upload/user/" . $row['image'] . "' width='30' height='30'>";
 
        }else{
-         echo "<image src='upload/user/default.png' width='30' height='30'>";
+         echo "<image src='$ROOT./upload/user/default.png' width='30' height='30'>";
         }
         ?>
          
@@ -118,7 +118,7 @@ if(isset($_POST['logout'])){
       
         </a>
         <div class="dropdown-menu">
-        <a href="profail.php" class=" dropdown-item my-2 my-sm-0">Profail</a>
+        <a href="<?PHP echo $ROOT.'/profail.php'?>" class=" dropdown-item my-2 my-sm-0">Profail</a>
         
         <button class=" dropdown-item my-2 my-sm-0 text-danger" name="logout"  type="submit">Logout</button>
        
