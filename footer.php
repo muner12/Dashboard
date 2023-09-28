@@ -13,12 +13,10 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">
-              Company name
+            Institute name
             </h6>
             <p>
-              Here you can use rows and columns to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+            The University of Buner Herbarium Catalog is a crucial repository for plant specimens, supporting botanical research and education. It plays a key role in conservation efforts by providing a diverse and meticulously cataloged collection for scientists, students, and enthusiasts.
             </p>
           </div>
           <!-- Grid column -->
