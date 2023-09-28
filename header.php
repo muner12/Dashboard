@@ -118,7 +118,7 @@ if(isset($_POST['logout'])){
       
         </a>
         <div class="dropdown-menu">
-        <a href="<?PHP echo $ROOT.'/profail.php'?>" class=" dropdown-item my-2 my-sm-0">Profile </a>
+        <a href="<?PHP echo $ROOT.'/Profile.php'?>" class=" dropdown-item my-2 my-sm-0">Profile </a>
         
         <button class=" dropdown-item my-2 my-sm-0 text-danger" name="logout"  type="submit">Logout</button>
        
