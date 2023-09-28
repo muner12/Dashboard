@@ -125,24 +125,28 @@ if($result==1){
 
 ?>
 
-<div class="container">
-   
-    <div class="jumbotron">
-         <!-- bread crumb -->
+<div class="">
+
+    <div class="jumbotron m-3">
+        <!-- bread crumb -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
                 <li class="breadcrumb-item active">
-                   <?PHP if($update_text=="update") { ?> <a>Update Angiosperms</a><?php } else { ?>
-                    <a>Add Angiosperms</a><?PHP }?>
+                    <?PHP if($update_text=="update") { ?> <a>Update Angiosperms</a><?php } else { ?>
+                    <a>Add Angiosperms</a>
+                    <?PHP }?>
                 </li>
-                
+
             </ol>
         </nav>
         <!-- end bread Crumb -->
         <div class="roboto d-flex justify-content-center">
-            <h2 class="mb-5 text-success "><?PHP if($update_text=="update") { ?> <a>Update Angiosperms</a><?php } else { ?>
-                    <a>Add Angiosperms</a><?PHP }?></h3>
+            <h2 class="mb-5 text-success ">
+                <?PHP if($update_text=="update") { ?> <a>Update Angiosperms</a><?php } else { ?>
+                <a>Add Angiosperms</a>
+                <?PHP }?>
+                </h3>
         </div>
         <form method="post" enctype="multipart/form-data">
 
@@ -151,65 +155,79 @@ if($result==1){
 
                     <div class="form-group">
                         <label for="name">Botanical Name</label>
-                        <input value="<?PHP if(isset($fetch_one_row['botanical'])) echo $fetch_one_row['botanical'];?>" value="<?PHP if(isset($fetch_one_row['botanical'])) echo $fetch_one_row['botanical'];?>" type="text" class="form-control" id="name" name="botanical" placeholder="botanical Name "
+                        <input value="<?PHP if(isset($fetch_one_row['botanical'])) echo $fetch_one_row['botanical'];?>"
+                            value="<?PHP if(isset($fetch_one_row['botanical'])) echo $fetch_one_row['botanical'];?>"
+                            type="text" class="form-control" id="name" name="botanical" placeholder="botanical Name "
                             required>
                     </div>
                     <div class="form-group">
                         <label for="name">Synonym</label>
-                        <input value="<?PHP if(isset($fetch_one_row['synonyams'])) echo $fetch_one_row['synonyams'];?>" type="text" class="form-control" id="name" name="synonayms" placeholder="Synonym"
-                            required>
+                        <input value="<?PHP if(isset($fetch_one_row['synonyams'])) echo $fetch_one_row['synonyams'];?>"
+                            type="text" class="form-control" id="name" name="synonayms" placeholder="Synonym" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Family</label>
-                        <input value="<?PHP if(isset($fetch_one_row['family'])) echo $fetch_one_row['family'];?>" type="text" class="form-control" id="name" name="family" placeholder="Family" required>
+                        <input value="<?PHP if(isset($fetch_one_row['family'])) echo $fetch_one_row['family'];?>"
+                            type="text" class="form-control" id="name" name="family" placeholder="Family" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Group</label>
-                        <input value="<?PHP if(isset($fetch_one_row['group'])) echo $fetch_one_row['group'];?>" type="text" class="form-control" id="name" name="group" placeholder="Group" required>
+                        <input value="<?PHP if(isset($fetch_one_row['group'])) echo $fetch_one_row['group'];?>"
+                            type="text" class="form-control" id="name" name="group" placeholder="Group" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Country</label>
-                        <input value="<?PHP if(isset($fetch_one_row['country'])) echo $fetch_one_row['country'];?>" type="text" class="form-control" id="name" name="contry" placeholder="Country" required>
+                        <input value="<?PHP if(isset($fetch_one_row['country'])) echo $fetch_one_row['country'];?>"
+                            type="text" class="form-control" id="name" name="contry" placeholder="Country" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Province</label>
-                        <input value="<?PHP if(isset($fetch_one_row['province'])) echo $fetch_one_row['province'];?>" type="text" class="form-control" id="name" name="province" placeholder="Province"
-                            required>
+                        <input value="<?PHP if(isset($fetch_one_row['province'])) echo $fetch_one_row['province'];?>"
+                            type="text" class="form-control" id="name" name="province" placeholder="Province" required>
                     </div>
 
-                    
+
 
 
                 </div>
                 <div class="col-lg-5">
                     <div class="form-group">
                         <label for="name">Collector</label>
-                        <input value="<?PHP if(isset($fetch_one_row['collector'])) echo $fetch_one_row['collector'];?>" type="text" class="form-control" id="name" name="Collector" placeholder="Collector"
+                        <input value="<?PHP if(isset($fetch_one_row['collector'])) echo $fetch_one_row['collector'];?>"
+                            type="text" class="form-control" id="name" name="Collector" placeholder="Collector"
                             required>
                     </div>
                     <div class="form-group">
                         <label for="name">Collection_Number</label>
-                        <input value="<?PHP if(isset($fetch_one_row['collection_number'])) echo $fetch_one_row['collection_number'];?>" type="text" class="form-control" id="name" name="Collection_Number"
+                        <input
+                            value="<?PHP if(isset($fetch_one_row['collection_number'])) echo $fetch_one_row['collection_number'];?>"
+                            type="text" class="form-control" id="name" name="Collection_Number"
                             placeholder="Collection_Number" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Year</label>
-                        <input value="<?PHP if(isset($fetch_one_row['year'])) echo $fetch_one_row['year'];?>" type="text" class="form-control" id="Name" name="Year" placeholder="Year" required>
+                        <input value="<?PHP if(isset($fetch_one_row['year'])) echo $fetch_one_row['year'];?>"
+                            type="text" class="form-control" id="Name" name="Year" placeholder="Year" required>
                     </div>
 
                     <div class="form-group">
                         <label for="name">Upload Date</label>
-                        <input value="<?PHP if(isset($fetch_one_row['upload_date'])) echo $fetch_one_row['upload_date'];?>" type="date" class="form-control" id="Upload_Date" name="upload_date" placeholder="Date"
+                        <input
+                            value="<?PHP if(isset($fetch_one_row['upload_date'])) echo $fetch_one_row['upload_date'];?>"
+                            type="date" class="form-control" id="Upload_Date" name="upload_date" placeholder="Date"
                             required>
                     </div>
                     <div class="form-group">
                         <label for="name">Description</label>
-                        <input value="<?PHP if(isset($fetch_one_row['description'])) echo $fetch_one_row['description'];?>" type="text" class="form-control" id="desc" name="Description" placeholder="Description"
+                        <input
+                            value="<?PHP if(isset($fetch_one_row['description'])) echo $fetch_one_row['description'];?>"
+                            type="text" class="form-control" id="desc" name="Description" placeholder="Description"
                             required>
                     </div>
                     <div class="form-group">
                         <label for="name">Picture</label>
-                        <input  type="file" class="form-control" id="name" name="Picture" placeholder="" <?php echo $required;?>>
+                        <input type="file" class="form-control" id="name" name="Picture" placeholder=""
+                            <?php echo $required;?>>
                     </div>
 
 
@@ -217,33 +235,34 @@ if($result==1){
 
 
                 </div>
-                
+
 
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-5">
-                <div class="form-group">
+                    <div class="form-group">
                         <?PHP if(isset($_GET['type']) && $_GET['type']=='update'){?>
                         <input type="submit" class="btn btn-success btn-block" id="name" name="update" value="update">
                         <?PHP } else { ?>
-                            <input type="submit" class="btn btn-success btn-block" id="name" name="insert" value="insert">
-                       <?php }?>
+                        <input type="submit" class="btn btn-success btn-block" id="name" name="insert" value="insert">
+                        <?php }?>
                     </div>
-      
+
                 </div>
                 <div class="col-lg-5">
-                    
+
                     <?php
                     if(isset($_GET['type']) && $_GET['type']=='update'){
                         echo "<img width='100px' height='60px' src='upload/Angiosperm/{$fetch_one_row['picture']}'>";
                     
                     ?>
-                    <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this picture wil be selected<span>
-                    <?PHP } ?> 
-                        </div>
+                    <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this
+                        picture wil be selected<span>
+                            <?PHP } ?>
+                </div>
             </div>
-            
-             </form>
+
+        </form>
     </div>
 </div>
 
