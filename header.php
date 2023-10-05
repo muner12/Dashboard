@@ -39,6 +39,36 @@ if(isset($_POST['logout'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
  
   <title>Dashboard</title>
+
+  <style>
+        /* Custom CSS for the circular file upload button */
+        .custom-file-input {
+            display: none;
+        }
+
+        .custom-file-upload-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .custom-file-upload-circle:hover {
+            border-color: #333;
+        }
+
+        .custom-file-label {
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    </style>
   </head>
   <body>
     <!-- navbar  start -->

@@ -16,7 +16,10 @@
             Institute name
             </h6>
             <p>
-            The University of Buner Herbarium Catalog is a crucial repository for plant specimens, supporting botanical research and education. It plays a key role in conservation efforts by providing a diverse and meticulously cataloged collection for scientists, students, and enthusiasts.
+            The University of Buner Herbarium Catalog is a crucial repository for 
+            plant specimens, supporting botanical research and education. 
+            It plays a key role in conservation efforts by providing a diverse and 
+            meticulously cataloged collection for scientists, students, and enthusiasts.
             </p>
           </div>
           <!-- Grid column -->
@@ -88,7 +91,7 @@
           <div class="col-md-7 col-lg-8 text-center text-md-start">
             <!-- Copyright -->
             <div class="p-3">
-              © 2020 Copyright:
+              © 2023 UOB Herbarium Catalog Collection.All Rights Reserved:
               <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
             </div>
             <!-- Copyright -->

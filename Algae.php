@@ -29,7 +29,7 @@ if(isset($_POST['insert'])){
     if( mysqli_num_rows($check_recored)>0){
         echo '<script>alert("This Recored exist in the Database!!!")</script>';
     }else{
-
+// changes
    
     $sql="INSERT INTO `algue` ( `botanical`, `synonyams`, `family`, `group`, `country`, `province`, `collector`, `collection_number`, `year`, `upload_date`, `description`, `picture`) 
     VALUES ('$botincal', '$sysnonyams', '$family', '$group', '$country', '$province', '$collector', '$collection_number', '$year', '$upload_date', '$desciption', '$picture_name')";
