@@ -1,5 +1,6 @@
 <?PHP
 $pcName=gethostbyaddr($_SERVER['REMOTE_ADDR']);
+echo $pcName;
 if($pcName=="x1"){
     $ROOT="/sarzamin-project/admin";
 }else if($pcName=="DESKTOP-LFHNS14"){
