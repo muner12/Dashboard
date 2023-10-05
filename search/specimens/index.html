@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="sv">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Herbarium Catalogue (S) -- Search specimens</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128363340-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-128363340-1', { 'anonymize_ip': true });
+	</script>
+	<link rel="stylesheet" href="../../static/kryptos/css/bootstrap-3.4.1.min.eb2644c7646f.css">
+    
+<link rel="stylesheet" type="text/css" href="../../static/kryptos/css/datatables.min.e91bc205a718.css"/>
+<link rel="stylesheet" type="text/css" href="../../static/kryptos/css/daterangepicker-0.21.1.min.e463244064e1.css"/>
+<style type="text/css">
+.dataTables_info { padding-top: 0px !important;}
+</style>
+
+    <link rel="stylesheet" href="../../static/kryptos/css/kryptos.96ff8b763cb6.css">
+    <link rel='shortcut icon' type='image/x-icon' href='../../static/kryptos/img/Icon/icon.jpg' />
+  </head>
+ <body background="../../static/kryptos/img/bakgrund.cd326a1e709c.png"> 
+  	<div id="body-container" class="container">
+    <header> 
+        <a href="https://www.ubuner.edu.pk/course/botany/" class="nrm"><img src="../../static/kryptos/img/Logo/logo.png" alt="NRM logotype"/></a>
+        <h1><a href="../../index.html">University of Buner Herbarium Catalog Collection</a></h1>    
+    </header>
+    <nav class="clearfix nav-items">
+    	<a class="menu visible-xs-block" href="#">Navigation <span class="pull-right">&#9776;</span></a>
+        <a class="link nav-start" href="../../index.html">Start</a>
+  		<a class="link nav-items" href="index.html">Search specimens</a>
+  		<a class="link nav-species" href="../species/index.html">Search genus/species</a>
+  		<a class="link nav-howto" href="../../howto/index.html">How-to</a>
+		 
+    </nav>
+      
+      
+<!-- Searchfields -->
+<div class="well well-sm">
+	<form>
+		<div class="row">
+    		<div class="col-md-9 col-sm-12">
+    			<div class="form-group">
+    				<label for="id_query">Search all fields</label> <a tabindex="-1" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-popover="#help_query" aria-label="Search help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+    				<span class="text-muted">&nbsp;&nbsp;&nbsp;Truncate words with *</span>
+    				<input type="text" name="query" class="form-control" aria-label="Main search query" id="id_query">
+      			</div>
+      		</div>
+			<div class="col-md-3 col-sm-12 label-pad">
+				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+				<a class="btn btn-link pull-right" href="index.html" role="button"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Reset</a>
+			</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-lg-9 col-md-10">
+	  			<button type="button" id="filter_button" class="btn btn-link" data-toggle="collapse" data-target="#id_filters"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> <span class="text-show">More</span><span class="text-hide">Hide</span> search options</button>
+	  		</div>
+	  	</div>
+	  	<div id="id_filters" class="row collapse">
+	  		<div class="col-md-12">
+	  			<div class="flex-row row">
+	  				<div class="col-md-3 col-xs-6">
+		  				
+<div class="form-group">
+	<label for="id_name">Species name</label>
+	 <a tabindex="-1" role="button" data-toggle="popover" data-trigger="focus" data-popover="#help_name"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+	<input type="text" name="name" class="form-control" id="id_name">
+	
+	
+		
+	
+</div>
+		  			</div>
+	  				<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_family">Family</label>
+	
+	<input type="text" name="family" class="form-control" id="id_family">
+	
+	
+		<!-- No errors -->
+	
+</div>
+		  			</div>
+		  			<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_basionym">Basionym</label>
+	
+	<input type="text" name="basionym" class="form-control" id="id_basionym">
+	
+	
+		<!-- No errors -->
+	
+</div>
+		  			</div>
+		  			<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label></label>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" name="type" id="id_type">
+			Types
+		</label>
+		
+	</div>
+</div>
+
+		  			</div>
+			  		<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_continent">Continent</label>
+	
+	<select name="continent" class="form-control" id="id_continent">
+  <option value="all" selected>--- All continents ---</option>
+
+  <option value=""></option>
+
+  <option value="Africa">Africa</option>
+
+  <option value="Asia">Asia</option>
+
+  <option value="Australia &amp; Oceania">Australia &amp; Oceania</option>
+
+  <option value="Cult.">Cult.</option>
+
+  <option value="Europe">Europe</option>
+
+  <option value="Loco ignoto">Loco ignoto</option>
+
+  <option value="North America">North America</option>
+
+  <option value="Sine loco">Sine loco</option>
+
+  <option value="South and Central America, Caribbean &amp; Antarctica">South and Central America, Caribbean &amp; Antarctica</option>
+
+</select>
+	
+	
+		<!-- No errors -->
+	
+</div>
+		  			</div>
+			  		<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_country">Country</label>
+	
+	<select name="country" class="form-control" disabled id="id_country">
+  <option value="all"> Pakistan </option>
+
+</select>
+	
+	
+		<!-- No errors -->
+	
+</div>
+		  			</div>
+		  			<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_province">Province</label>
+<!-- 	
+	<select name="province" class="form-control" id="id_province">
+  <option value="all" selected> province</option> -->
+  <select name="continent" class="form-control" id="id_continent">
+	<option value="all" selected>--- Province---</option>
+  
+  <option value="">KP</option>
+  <option value="">Punjab</option>
+  <option value="">Sindh</option>
+  <option value="">Balochistan</option>
+
+</select>
+	
+	
+		<!-- No errors -->
+	
+</div>
+		  			</div>
+		  		   <div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label></label>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" name="images" id="id_images">
+			Specimens with images
+		</label>
+		
+	</div>
+</div>
+
+		  			</div>
+		  			<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_year">Year</label>
+	 <a tabindex="-1" role="button" data-toggle="popover" data-trigger="focus" data-popover="#help_year"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+	<input type="text" name="year" class="form-control" id="id_year">
+	
+	
+		<!-- No errors -->
+	
+</div>
+			  		</div>
+			  		<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_collector">Collector</label>
+	
+	<input type="text" name="collector" class="form-control" id="id_collector">
+	
+	
+		<!-- No errors -->
+	
+</div>
+			  		</div>
+			  		<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_collectornumber">Collection number</label>
+	
+	<input type="text" name="collectornumber" class="form-control" id="id_collectornumber">
+	
+	
+		<!-- No errors -->
+	
+</div>
+			  		</div>
+			  		<div class="col-md-3 col-xs-6">
+			  			
+			  		</div>
+		  			<div class="col-md-3 col-xs-6">
+						
+<div class="form-group">
+	<label for="id_group">Group</label>
+	
+	<select name="group" class="form-control" id="id_group">
+  <option value="" selected>--- All groups ---</option>
+
+  <option value="svampar">Fungi/Lichens</option>
+
+  <option value="alger">Algae</option>
+
+  <option value="mossor">Bryophytes</option>
+
+  <option value="fbo">Vascular plants</option>
+
+</select>
+	
+	
+		<!-- No errors -->
+	
+</div>
+			  		</div>	
+			  		<div class="col-md-3 col-xs-6">
+						
+<div class="form-group has-feedback">
+	<label for="id_createddate">Created date</label>
+	
+	<input type="text" name="createddate" autocomplete="off" class="form-control" id="id_createddate">
+	
+		<span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+	
+	
+		<!-- No errors -->
+	
+</div>
+			  		</div>
+		  			
+		  		</div>
+	  		</div>
+	  	</div>
+	</form>
+</div>
+
+<!-- Search help for query and year -->
+<div class="hidden">
+	<div id="help_query">
+		<div class="title">Search all fields</div>
+		<div class="content">
+			<p>You can use special characters to specify your search query. For example:</p>
+			
+			<p>Use <code>*</code> to truncate words<br>
+			<code>chrysanth*</code></p>
+			
+			<p>Use <code>-</code> to negate a word<br>
+			<code>europe -sweden</code></p>
+			
+			<p>Wrap words in <code>"</code> to search for a phrase<br>
+			<code>"Oak Lake"</code></p>
+		</div>
+	</div>
+	<div id="help_name">
+		<div class="title">Species name</div>
+		<div class="content">
+			<p>Search for species whose name begin with the specified string. Do not
+			truncate words with <code>*</code> in this field.</p>
+		</div>
+	</div>
+	<div id="help_year">
+		<div class="title">Year</div>
+		<div class="content">
+			<p>The year the specimen was collected. Examples:</p>
+			<table class="table">
+				<tr><td>1998</td><td>Collected in 1998</td></tr>
+				<tr><td>2010-</td><td>2010 or later</td></tr>
+				<tr><td>-1960</td><td>1960 or earlier</td></tr>
+				<tr><td>1905-1910</td><td>Between 1905 and 1910</td></tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div id="hitlist"></div>
+
+<div id="datatables_error" class="row collapse">
+	<div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10">
+		<div class="alert alert-danger" role="alert">
+			<strong>Error:</strong> There was an error while performing the search <span class="details"></span>
+		</div>
+	</div>
+</div>
+
+
+
+
+    <footer>
+    	<ul class="list-inline text-center">
+    		<li><a href="mailto:herbarium@nrm.se">herbarium@nrm.se</a></li>
+    	</ul>          
+        <ul class="list-inline text-center">          
+          <li><a href="http://www.nrm.se/english/themuseum/contact/">Contact</a></li>
+          <li><a href="http://www.nrm.se/english/visitthemuseum/">Visit the museum</a></li>
+          <li><a href="http://www.nrm.se/english/researchandcollections/">Research and collections</a></li>
+          <li><a href="../../gdpr/index.html">Processing of personal data</a></li>
+          <li><a href="../../accessibility/index.html">Accessibility</a></li>
+        </ul>
+    </footer>
+    </div>
+    <script src="../../static/kryptos/js/jquery-3.6.0.min.8fb8fee4fcc3.js"></script>
+    <script src="../../static/kryptos/js/bootstrap-3.4.1.min.2f34b630ffe3.js"></script>
+    <script src="../../static/kryptos/js/kryptos.134b4c7884dd.js"></script>
+    
+<script type="text/javascript" src="../../static/kryptos/js/datatables.min.e8e1e8eb568d.js"></script>
+<script type="text/javascript" src="../../static/kryptos/js/moment-2.29.1.min.5c158b940513.js"></script>
+<script type="text/javascript" src="../../static/kryptos/js/jquery.daterangepicker-0.21.1.min.c20c3677c8f3.js"></script>
+<script type="text/javascript">
+$.fn.DataTable.ext.pager.full_numbers_no_ellipses = function(page, pages){
+    var numbers = [];
+    var buttons = $.fn.DataTable.ext.pager.numbers_length;
+    var half = Math.floor( buttons / 2 );
+    var _range = function ( len, start ){
+       var end;
+
+       if ( typeof start === "undefined" ){
+          start = 0;
+          end = len;
+       } else {
+          end = start;
+          start = len;
+       }
+       var out = [];
+       for ( var i = start ; i < end; i++ ){ out.push(i); }
+       return out;
+    };
+    if ( pages <= buttons ) {
+       numbers = _range( 0, pages );
+    } else if ( page <= half ) {
+      numbers = _range( 0, buttons);
+    } else if ( page >= pages - 1 - half ) {
+       numbers = _range( pages - buttons, pages );
+    } else {
+       numbers = _range( page - half, page + half + 1);
+    }
+    numbers.DT_el = 'span';
+    return [ 'first', 'previous', numbers, 'next', 'last' ];
+};
+
+$.fn.dataTable.ext.errMode = 'none';
+
+$(document).ready(function() {
+	$('#id_createddate').dateRangePicker({
+		language: "en",
+		separator: "--",
+		startOfWeek: "monday",
+		monthSelect: true,
+		yearSelect: true
+	});
+	$("#datatables_error").collapse({
+		toggle: false,
+	});
+	$('#result')
+		.on("xhr.dt", function( e, settings, json, xhr) {
+			xhr.fail(function(jqXHR, textStatus, errorThrown) {
+				$("#datatables_error .details").text("(" + jqXHR.status + " " + jqXHR.statusText + ")");
+			});
+		})
+		.on("error.dt", function ( e, settings, techNote, message ) {
+			$("#datatables_error").collapse("show");
+	        console.log('An error has been reported by DataTables: ', message );
+	    })	    
+		.dataTable( {
+		"processing": true,
+        "serverSide": true,
+        "searching": false,
+        "responsive": true,
+        "stateSave": true,
+        "dom": '<"panel panel-default"<"panel-heading"<"row"<"col-sm-6 lh30"i><"col-sm-6 text-right"l>>>r<"row"<"col-sm-12"t>><"panel-footer"<"row"<"col-sm-12 text-right"p>>>>',
+        "ajax": {
+        	"url": "/search/specimens/data/",
+        	"data": function (d) {
+        		d.query = $("#id_query").val();
+        		$("#id_filters").find("input, select:enabled").each(function() {
+        			if (!$(this).closest(".form-group").is(".has-error")) {
+	        			var name = $(this).attr("name");
+	        			var value = "";
+	        			if ($(this).attr("type") == 'checkbox') {
+	        				value = $(this).prop("checked");
+	        			} else {
+	        				value = $(this).val();
+	        			}
+	        			d[name] = value;
+        			}
+        		});
+        	}
+        },
+        "language": {
+        	"infoFiltered": "(of _MAX_ entries in total)"
+        },
+        "pagingType": "full_numbers_no_ellipses",
+        "order": [[2, "asc"]],
+        "columns": [
+            { "data": "bilder", "orderable": false, "render": function ( data, type, row, meta ) {
+            	var extraclass = "";
+            	var link_start = "";
+            	var link_end = "";
+            	if (!data) {
+            		extraclass = " text-very-muted";
+            	} else {
+            		link_start = '<a href="' + row.url_image + '" class="image-link">';
+            		link_end = '</a>';
+            	}
+		  	  	return '<span class="nowrap">' + link_start + '<span class="glyphicon glyphicon-camera'+extraclass+'" aria-hidden="true"></span>' + link_end + '</span>';
+		  	  }
+            },
+            { "data": "namn",
+			  "render": function ( data, type, row, meta ) {
+					return '<a id="row_'+row.id+'" href="'+row.url+'">'+data+'</a>'; 
+			  }
+			},
+            { "data": "land" },
+            { "data": "provins" },
+            { "data": "lokal" },
+            { "data": "aar_span" },
+            { "data": "insamlare" },
+            { "data": "insamlingsnummer" },
+            { "data": "basionym",
+  			  "render": function ( data, type, row, meta ) {
+					return data + '<br/><span class="text-danger">' + row.typ + '</span>'; 
+			  }
+            },
+        ],
+        "initComplete": function(settings, json){
+        	if (window.location.href.substr(-"#hitlist".length) === "#hitlist") { // endswith
+        		$("#hitlist").get(0).scrollIntoView();
+        	}	
+        }
+    } );
+	$("form").submit(function() {
+		// Reset saved state when form is submitted
+		if (typeof(Storage) !== "undefined") {
+    		localStorage.setItem("DataTables_result_" + window.location.pathname, "{}");
+		}
+	});
+	if (window.location.href.substr(-"#hitlist".length) !== "#hitlist") { // !endswith
+		$("#query").focus();
+	}
+} );
+</script>
+<script src="js/form.js"></script>
+
+
+  </body>
+
+
+</html>
