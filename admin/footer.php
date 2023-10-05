@@ -13,7 +13,7 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">
-            Institute name
+            University of Buner
             </h6>
             <p>
             The University of Buner Herbarium Catalog is a crucial repository for 
@@ -28,7 +28,7 @@
 
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <h6 class="text-uppercase mb-4 font-weight-bold">Species Name</h6>
             <p>
               <a class="text-white">MDBootstrap</a>
             </p>
@@ -92,7 +92,7 @@
             <!-- Copyright -->
             <div class="p-3">
               © 2023 UOB Herbarium Catalog Collection.All Rights Reserved:
-              <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+              <a class="text-white" href="https://mdbootstrap.com/"></a>
             </div>
             <!-- Copyright -->
           </div>
