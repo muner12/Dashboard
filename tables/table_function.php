@@ -21,6 +21,7 @@ function showTable($tableName,$con,$ROOT,$path){
         <table class="table table-hover table-striped table-bordered table-font">
             <thead class="bg-secondary">
                 <th>S#</th>
+                <!-- <th>ID</th> -->
                 <th>Botinical Name</th>
                 <th>synonyams</th>
                 <th>family</th>
@@ -42,7 +43,7 @@ function showTable($tableName,$con,$ROOT,$path){
     $query = "select *from {$tableName}";  
     $result = mysqli_query($con, $query);  
     $number_of_result = mysqli_num_rows($result);  
-  
+   
     //determine the total number of pages available  
     $number_of_page = ceil ($number_of_result / $results_per_page);  
   
@@ -69,6 +70,7 @@ function showTable($tableName,$con,$ROOT,$path){
         echo "<tr>
 
         <td>".++$i."</td>
+      
         <td>".$row['botanical']."</td>
         <td>".$row['synonyams']."</td>
         <td>".$row['family']."</td>

@@ -4,6 +4,8 @@ include("../db_connection/connection.php");
 include("../constants.php");
 include("./table_function.php");
 
+
+
 if(isset($_GET['type']) && $_GET['type']=='delete'){
   
   

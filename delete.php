@@ -3,6 +3,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include("header.php");
 include("functions.php");
+$row=[];
+
 if(isset($_GET['id']) || isset($_GET['speciesId'])  && isset($_GET['table']) && isset($_GET['path']) ){
     $path=isset($_GET['id'])?$_GET['path']:"tables/".$_GET['path'];
 
@@ -15,10 +17,16 @@ if(isset($_GET['id']) || isset($_GET['speciesId'])  && isset($_GET['table']) && 
         $row=mysqli_fetch_assoc(mysqli_query($con,"select * from $tableName where id={$_GET['speciesId']}"));
 
     }
+   
 if(isset($_POST['delete-btn'])){
     $id=isset($_GET['id'])?$_GET['id']:$_GET['speciesId'];
 
     $result=mysqli_query($con,"delete from $tableName where id={$id}");
+  
+    if(isset($_GET['path']) && isset($row['picture'])){
+        $deleteImgePath="upload/".$_GET['path']."/".$row['picture'];
+        unlink($deleteImgePath);
+    }
     //echo "<script>location.replace($path.'.php?success=yes')</script>";
     echo '<script>window.location.href = "' . $path . '.php?success=yes";</script>';
     exit(); // Ensure that no further code execution occurs
