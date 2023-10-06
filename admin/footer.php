@@ -91,7 +91,7 @@
           <div class="col-md-7 col-lg-8 text-center text-md-start">
             <!-- Copyright -->
             <div class="p-3">
-              © 2023 UOB Herbarium Catalog Collection.All Rights Reserved:
+              © 2023 UOB Herbarium Catalog Collection.All Rights Reserved
               <a class="text-white" href="https://mdbootstrap.com/"></a>
             </div>
             <!-- Copyright -->
