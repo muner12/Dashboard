@@ -107,7 +107,7 @@
             <!-- Copyright -->
             <div class="p-3">
               © 2023 UOB Herbarium Catalog Collection.All Rights Reserved
-              <a class="text-white" href="https://mdbootstrap.com/"></a>
+             
             </div>
             <!-- Copyright -->
           </div>
@@ -116,10 +116,10 @@
           <!-- Grid column -->
           <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
             <!-- Facebook -->
-            <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" href="https://web.facebook.com/muner06/"><i class="fab fa-facebook-f"></i></a>
 
             <!-- Twitter -->
-            <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" href="https://twitter.com/bakhtmuner5"><i class="fab fa-twitter"></i></a>
 
             <!-- Google -->
             <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button"><i class="fab fa-google"></i></a>
