@@ -28,18 +28,33 @@
 
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Species Name</h6>
+            <h6 class="text-uppercase mb-4 font-weight-bold">Species Tables</h6>
             <p>
-              <a class="text-white">MDBootstrap</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+           
             </p>
             <p>
-              <a class="text-white">MDWordPress</a>
+              <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
             </p>
             <p>
-              <a class="text-white">BrandFlow</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+           
             </p>
             <p>
-              <a class="text-white">Bootstrap Angular</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+           
+            </p>
+            <p>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+           
+            </p>
+            <p>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+           
+            </p>
+            <p>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+           
             </p>
           </div>
           <!-- Grid column -->
@@ -52,16 +67,16 @@
               Useful links
             </h6>
             <p>
-              <a class="text-white">Your Account</a>
+              <a class="text-white" href="<?PHP echo $ROOT."/profail.php"?>">Profail</a>
             </p>
             <p>
-              <a class="text-white">Become an Affiliate</a>
+              <a class="text-white" href="<?PHP echo $ROOT."/addAdmin.php"?>">Add Admin</a>
             </p>
             <p>
-              <a class="text-white">Shipping Rates</a>
+              <a class="text-white" href="<?PHP echo $ROOT."/dashboard.php"?>">Home</a>
             </p>
             <p>
-              <a class="text-white">Help</a>
+            
             </p>
           </div>
 
@@ -71,10 +86,10 @@
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-            <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+            <p><i class="fas fa-home mr-3"></i> Swari Buner, PK</p>
             <p><i class="fas fa-envelope mr-3"></i> herbarium@ubuner.edu.pk</p>
             <p><i class="fas fa-phone mr-3"></i> +92 345 3197085</p>
-            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            <p><i class="fas fa-print mr-3"></i>+92 332 123123123</p>
           </div>
           <!-- Grid column -->
         </div>
