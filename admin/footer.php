@@ -30,30 +30,30 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Species Tables</h6>
             <p>
-            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >algae</a>
            
             </p>
             <p>
-              <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+              <a class="text-white" href="<?PHP echo $ROOT."/tables/fungi.php"?>" >Fungi</a>
             </p>
             <p>
-            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/angiosperm.php"?>" >Angiosperm</a>
            
             </p>
             <p>
-            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/bryophyte.php"?>" >Bryophyte</a>
            
             </p>
             <p>
-            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/gymnosperms.php"?>" >Gymnosperms</a>
            
             </p>
             <p>
-            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/lichens.php"?>" >Lichens</a>
            
             </p>
             <p>
-            <a class="text-white" href="<?PHP echo $ROOT."/tables/algae.php"?>" >alge</a>
+            <a class="text-white" href="<?PHP echo $ROOT."/tables/pteridophytes.php"?>" >Pteridophytes</a>
            
             </p>
           </div>
@@ -67,7 +67,7 @@
               Useful links
             </h6>
             <p>
-              <a class="text-white" href="<?PHP echo $ROOT."/profail.php"?>">Profail</a>
+              <a class="text-white" href="<?PHP echo $ROOT."/profile.php"?>">Profile</a>
             </p>
             <p>
               <a class="text-white" href="<?PHP echo $ROOT."/addAdmin.php"?>">Add Admin</a>
