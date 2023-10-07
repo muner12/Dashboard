@@ -13,7 +13,7 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">
-            Institute name
+            University of Buner
             </h6>
             <p>
             The University of Buner Herbarium Catalog is a crucial repository for 
@@ -28,7 +28,7 @@
 
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <h6 class="text-uppercase mb-4 font-weight-bold">Species Name</h6>
             <p>
               <a class="text-white">MDBootstrap</a>
             </p>
@@ -72,7 +72,7 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
             <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-            <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+            <p><i class="fas fa-envelope mr-3"></i> herbarium@ubuner.edu.pk</p>
             <p><i class="fas fa-phone mr-3"></i> +92 345 3197085</p>
             <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
           </div>
@@ -91,8 +91,8 @@
           <div class="col-md-7 col-lg-8 text-center text-md-start">
             <!-- Copyright -->
             <div class="p-3">
-              © 2023 UOB Herbarium Catalog Collection.All Rights Reserved:
-              <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+              © 2023 UOB Herbarium Catalog Collection.All Rights Reserved
+              <a class="text-white" href="https://mdbootstrap.com/"></a>
             </div>
             <!-- Copyright -->
           </div>
