@@ -136,7 +136,8 @@ if(isset($_POST['update']))
         </div>
         <?php } else{?>
             <div class="alert alert-danger text">This User name is Not Exist <a href="profile.php"> Back</a></div>
-            <?PHP }}else{header("location:profile.php");
+            <?PHP }
+			}else{header("location:profile.php");
             }?>
         </div>
 		</div>
@@ -145,7 +146,7 @@ if(isset($_POST['update']))
 <script>
 
 
-	$(".loading_container").hide();
+	
 	// function readURL(input)
 	// {
   	// 	if(input.files && input.files[0])
@@ -235,7 +236,7 @@ if(isset($_POST['update']))
 							
 							location.reload();
 
-						}, 5000);
+						}, 1000);
 						
 						
                 	}
@@ -244,6 +245,6 @@ if(isset($_POST['update']))
     	});
     });
 	
-});
+
 </script>
 

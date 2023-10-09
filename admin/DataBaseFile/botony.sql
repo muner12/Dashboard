@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2023 at 09:07 AM
+-- Generation Time: Oct 09, 2023 at 04:39 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,17 +34,20 @@ CREATE TABLE `admin` (
   `password` varchar(100) NOT NULL,
   `contact` varchar(15) NOT NULL,
   `role` varchar(50) NOT NULL,
-  `status` int(2) NOT NULL
+  `status` int(2) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `email`, `password`, `contact`, `role`, `status`) VALUES
-(7, '', 'bakhtmuner06@gmail.com', '$2y$10$u9V4Dq2raH3WawD.pFpHm./GS2A2pfmmNACYuZ8UIMkFybBQI/jB.', '03329611333', 'superAdmin', 1),
-(8, '', 'sarzamin@gmail.com', '$2y$10$VzTeq42woU.r4zjXtpAed.SQBvN43hIDEbrnSV05xWZPDsJss6F1.', '123', 'subAdmin', 1),
-(10, '', 'rahmanbunerwal91@gmail.com', '$2y$10$5AYELZkDtg1X6Dqn955Y7O.67RShZE/xbrUdtuOetm3GFzdSkBJoe', '03499341175', 'superAdmin', 1);
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `contact`, `role`, `status`, `image`) VALUES
+(7, 'Munir', 'bakhtmuner06@gmail.com', '$2y$10$u9V4Dq2raH3WawD.pFpHm./GS2A2pfmmNACYuZ8UIMkFybBQI/jB.', '03329611333', 'superAdmin', 1, '34698.jpg'),
+(8, '', 'sarzamin@gmail.com', '$2y$10$VzTeq42woU.r4zjXtpAed.SQBvN43hIDEbrnSV05xWZPDsJss6F1.', '123', 'subAdmin', 1, 'default.png'),
+(10, '', 'rahmanbunerwal91@gmail.com', '$2y$10$5AYELZkDtg1X6Dqn955Y7O.67RShZE/xbrUdtuOetm3GFzdSkBJoe', '03499341175', 'superAdmin', 1, 'default.png'),
+(14, 'new', 'new@gmail.com', '$2y$10$jZA39uST72CsdVbRV2e6O.nAT.ALeJml4mxlI3Z/VTYGBQEnbF/bW', '123', 'subAdmin', 0, 'default.png'),
+(15, 'arif@gmail.com', 'arif@gmai.com', '$2y$10$bfPABaD00C3rwmbg2YDcMeOXolmuLFLsbGLeuJ81dGrvLFGdWgnaC', '123', 'superAdmin', 0, 'default.png');
 
 -- --------------------------------------------------------
 
@@ -91,7 +94,6 @@ INSERT INTO `algue` (`id`, `botanical`, `synonyams`, `family`, `group`, `country
 (19, 'Nannochloropsis oculata', 'Eustigmatophyceae', 'Eustigmataceae', 'Algae', 'Pakistan', 'KPK', 'Rizwan Ullah', 19, '2023', '2023-08-08', 'Nannochloropsis is a genus of algae comprising six known species. The genus in the current taxonomic classification was first termed by Hibberd. The species have mostly been known from the marine environment but also occur in fresh and brackish water.', '19.jpg'),
 (22, 'Codium fragile', 'Ulvophyceae', 'Codiaceae', 'Algae', 'Pakistan', 'KPK', 'Rizwan Ullah', 9, '2023', '2023-10-03', 'Codium fragile, known commonly as green sea fingers, dead man\'s fingers, felty fingers, forked felt-alga, stag seaweed, sponge seaweed, green sponge, green fleece, sea staghorn, and oyster thief, is a species of seaweed in the family Codiaceae.', '9.jpg'),
 (23, 'Phaeodactylum tricornutum', 'Bacillariophyceae', 'Phaeodactylaceae', 'Algae', 'Pakistan', 'KPK', 'Rizwan Ullah', 20, '2023', '2023-10-03', 'Codium fragile, known commonly as green sea fingers, dead man\'s fingers, felty fingers, forked felt-alga, stag seaweed, sponge seaweed, green sponge, green fleece, sea staghorn, and oyster thief, is a species of seaweed in the family Codiaceae.', '20.jpg'),
-(24, 'Chlamydomonas reinhardtii', 'Chlorophyceae', 'Chlamydomonadaceae', 'Algae', 'Pakistan', 'KPK', 'Rizwan Ullah', 1, '2023', '2023-10-05', 'Chlamydomonas reinhardtii is a single-cell green alga about 10 micrometres in diameter that swims with two flagella. It has a cell wall made of hydroxyproline-rich glycoproteins, a large cup-shaped chloroplast, a large pyrenoid, and an eyespot that senses', '1.jpg'),
 (25, 'Chondrus crispus', 'Florideophyceae', 'Gigartinaceae', 'Algae', 'Pakistan', 'KPK', 'Rizwan Ullah', 10, '2023', '2023-10-05', 'Chondrus crispus—commonly called Irish moss or carrageen moss —is a species of red algae which grows abundantly along the rocky parts of the Atlantic coasts of Europe and North America.', '10.jpg');
 
 -- --------------------------------------------------------
@@ -396,6 +398,13 @@ CREATE TABLE `user_otp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user_otp`
+--
+
+INSERT INTO `user_otp` (`id`, `email`, `otp`, `date`) VALUES
+(20, 'bakhtmuner06@gmail.com', 568392, '2023-10-08 15:16:25');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -461,7 +470,7 @@ ALTER TABLE `user_otp`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `algue`
@@ -509,7 +518,7 @@ ALTER TABLE `pteridophytes`
 -- AUTO_INCREMENT for table `user_otp`
 --
 ALTER TABLE `user_otp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -201,7 +201,7 @@ if(isset($_POST['logout'])){
         $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where email='{$_SESSION['user']}'"));
           
         if(isset($row['image'])){
-         echo "<image src='$ROOT./upload/user/" . $row['image'] . "' width='30' height='30'>";
+         echo "<image style='border-radius:50%' src='$ROOT./upload/user/" . $row['image'] . "' width='40' height='40'>";
 
        }else{
          echo "<image src='$ROOT./upload/user/default.png' width='30' height='30'>";
