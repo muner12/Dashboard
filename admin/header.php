@@ -35,9 +35,13 @@ if(isset($_POST['logout'])){
   <!-- font awesom link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- jquery -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
- 
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"> </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+		<link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
+
+		<script src="https://unpkg.com/cropperjs"></script>
   <title>Dashboard</title>
 
   <style>
@@ -68,6 +72,66 @@ if(isset($_POST['logout'])){
             white-space: nowrap;
             text-overflow: ellipsis;
         }
+
+
+        .image_area {
+			height:300px;
+			width:300px;
+			border:1px dashed black;
+		  position: relative;
+		  border-radius:50%;
+         
+      
+		}
+
+		.profail_img {
+		  	display: block;
+			
+		  	max-width: 100%;
+		}
+
+		.preview {
+  			overflow: hidden;
+  			width: 160px; 
+  			height: 160px;
+  			margin: 10px;
+  			border: 1px solid red;
+		}
+
+		.modal-lg{
+  			max-width: 1000px !important;
+		}
+
+		.overlay {
+		  position: absolute;
+		  bottom: 10px;
+		  left: 0;
+		  right: 0;
+		  background-color: rgba(255, 255, 255, 0.5);
+		  overflow: hidden;
+		  height: 0;
+		  transition: .5s ease;
+		  width: 100%;
+		}
+
+		.image_area:hover .overlay {
+		  height: 50%;
+		  cursor: pointer;
+		}
+
+		.text {
+		  color: #333;
+		  font-size: 20px;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+		  text-align: center;
+		}
+		
+
     </style>
   </head>
   <body>
@@ -137,7 +201,7 @@ if(isset($_POST['logout'])){
         $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where email='{$_SESSION['user']}'"));
           
         if(isset($row['image'])){
-         echo "<image src='upload/user/" . $row['image'] . "' width='30' height='30'>";
+         echo "<image src='$ROOT./upload/user/" . $row['image'] . "' width='30' height='30'>";
 
        }else{
          echo "<image src='$ROOT./upload/user/default.png' width='30' height='30'>";

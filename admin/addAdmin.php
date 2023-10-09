@@ -30,8 +30,8 @@ if(isset($_POST['add']))
         echo '<script>alert("all Fields are Required!!!");</script>';
         
     }else{
-        $sql="insert into admin(name,email,contact,password,role) values('$name','$email','$contact','$password','$role')";
-
+        $sql="insert into admin(name,email,password,contact,role,status,image) values('$name','$email','$password','$contact','$role',0,'default.png')";
+         
    $check_user=mysqli_query($con,"select * from admin where email='$email'");
    if(mysqli_num_rows($check_user)>0){
     echo '<script>alert("User already Registered");</script>';
