@@ -14,6 +14,7 @@ if(isset($_POST['insert'])){
     $family=$_POST['family'];
     $group=$_POST['group'];
    // $botincal=$_POST[''];
+   
     $country=$_POST['contry'];
     $province=$_POST['province'];
     $collector=$_POST['Collector'];
