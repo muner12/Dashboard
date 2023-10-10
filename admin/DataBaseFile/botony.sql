@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2023 at 04:39 PM
+-- Generation Time: Oct 10, 2023 at 11:20 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `contact`, `role`, `status`, `image`) VALUES
-(7, 'Munir', 'bakhtmuner06@gmail.com', '$2y$10$u9V4Dq2raH3WawD.pFpHm./GS2A2pfmmNACYuZ8UIMkFybBQI/jB.', '03329611333', 'superAdmin', 1, '34698.jpg'),
+(7, 'Munir', 'bakhtmuner06@gmail.com', '$2y$10$u9V4Dq2raH3WawD.pFpHm./GS2A2pfmmNACYuZ8UIMkFybBQI/jB.', '0332961133341', 'superAdmin', 1, '1137.jpg'),
 (8, '', 'sarzamin@gmail.com', '$2y$10$VzTeq42woU.r4zjXtpAed.SQBvN43hIDEbrnSV05xWZPDsJss6F1.', '123', 'subAdmin', 1, 'default.png'),
 (10, '', 'rahmanbunerwal91@gmail.com', '$2y$10$5AYELZkDtg1X6Dqn955Y7O.67RShZE/xbrUdtuOetm3GFzdSkBJoe', '03499341175', 'superAdmin', 1, 'default.png'),
 (14, 'new', 'new@gmail.com', '$2y$10$jZA39uST72CsdVbRV2e6O.nAT.ALeJml4mxlI3Z/VTYGBQEnbF/bW', '123', 'subAdmin', 0, 'default.png'),
