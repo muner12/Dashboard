@@ -33,7 +33,7 @@ include('header.php');
                 <td><?PHP echo $row['role']?></td>
                 </tr>
                 <tr >
-                 <td colspan="2" align="center"> <a  class="btn btn-success btn-block" href="editProfile.php?uemail=<?PHP echo sha1($_SESSION['user'])?>">Edit</a></td>
+                 <td colspan="2" align="center"> <a  class="btn btn-success btn-block" href="editProfail.php?uemail=<?PHP echo sha1($_SESSION['user'])?>">Edit</a></td>
                 </tr>
             </table>
         </div>
