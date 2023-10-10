@@ -5,7 +5,7 @@ include('header.php');
 
 <div class=" jumbotron d-flex justify-content-center">
 
-    <div class="d-flex justify-content-center shadow-lg w-50 p-3 px-5 mb-5 bg-white border border-danger rounded">
+    <div class="d-flex justify-content-center shadow-lg w-50 p-3 px-5 mb-5 bg-white  rounded">
         <div>
             <?PHP
             $row=mysqli_fetch_assoc(mysqli_query($con,"select * from admin where email='{$_SESSION['user']}'"));

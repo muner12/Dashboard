@@ -22,10 +22,10 @@ if(isset($_POST['update']))
 	if(!empty($name) && !empty($phone) && !empty($email))
 	{
 		
-		$sql="update admin set name='$name', email='$email',contact='$phone' where email=$uid";
+		$sql="update admin set name='$name', email='$email',contact='$phone' where email='$uemail'";
 		   $result=mysqli_query($con, $sql);
 		   if($result){
-			   $msg = "<p class='alert alert-success'>Profail updated Successfully <a href='profile.php'>Go to profail</a></p> ";
+			   $msg = "<p class='alert alert-success'>Profail updated Successfully</p> ";
 		   }
 		   else{
 			   $error = "<p class='alert alert-warning'>Profail not Updated</p> ";
