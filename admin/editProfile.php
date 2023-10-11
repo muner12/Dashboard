@@ -57,7 +57,7 @@ if(isset($_POST['update']))
             if (isset($_GET['uemail']))
             {
             ?>
-			<h3 align="center">Update Profail</h3>
+			<h3 align="center">Update Profile</h3>
 			
 			<div class="row ">
 				<div class="col-md-4">&nbsp;</div>
