@@ -148,9 +148,7 @@ if(isset($_POST['logout'])){
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo $ROOT."/dashboard.php"?>">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link">Link</a>
-      </li>
+    
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
           Add species

@@ -12,7 +12,7 @@ if(isset($_GET['type']) && $_GET['type']=='delete'){
     echo "<script>alert({$_GET['id']} is deleted)</script>";
   }
 }
-//skjdiaajid
+
 ?>
 
 
