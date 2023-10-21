@@ -92,10 +92,11 @@ footer {
 	bottom: 0px;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-	background-color: #040e0c;			
+	background-color: #0b4b3e67;			
 	/* Set the fixed height of the footer here */
 	height: 85px;
   	padding-top: 15px;
+	
 }
 footer a {
 	color: #ffffff;
@@ -133,7 +134,7 @@ footer a:hover {
 }
 .well-filter {
 	background-image: none;
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: #06a5c5b7;
 	box-shadow: none;
 	border-color: #cccccc;
 	padding-top: 0px;
