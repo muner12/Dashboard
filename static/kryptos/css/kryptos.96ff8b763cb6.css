@@ -92,19 +92,27 @@ footer {
 	bottom: 0px;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-	background-color: #0b4b3e67;			
+	background-color: #051522c7;			
 	/* Set the fixed height of the footer here */
 	height: 85px;
   	padding-top: 15px;
 	
 }
+
+
 footer a {
 	color: #ffffff;
 	font-weight: bold;
 }
 footer a:hover {
+	 color: #000;
+	 box-shadow: #0b4157;
+	 font-weight: 200%;
+	 cursor: pointer;
+	 border-color: #307397;
 	
 }
+
 #body-container {
 	position: relative;
 	background-color: #ffffff;
