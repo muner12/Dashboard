@@ -42,6 +42,25 @@
                     font-weight: 600;
                     transform: rotate(90deg);
                 }
+                
+                .image-column {
+                    position: relative;
+                }
+                /* Style for the zoomed image */
+                
+                .image-zoom {
+                    overflow: hidden;
+                    transition: transform 0.2s;
+                }
+                /* Apply zoom effect on hover */
+                
+                .image-column:hover .image-zoom {
+                    position: relative;
+                    transform: scale(3);
+                    right: 100%;
+                    z-index: 1;
+                    /* Adjust the scale factor as needed */
+                }
             </style>
         </header>
         <nav class="clearfix nav-items">
@@ -152,7 +171,7 @@
                 <li><a href="mailto:herbarium@ubuner.edu.pk">herbarium@ubuner.edu.pk</a></li>
             </ul>
             <ul class="list-inline text-center">
-                
+
                 <li>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
