@@ -1,5 +1,6 @@
 <?php
 $con=mysqli_connect("localhost","root","","botony");
+$total_species=0;
 function percent($register,$total){
 
 	$percent=($register/$total)*100;
@@ -88,9 +89,8 @@ function percent($register,$total){
 			<tbody>
 				<tr>
 					<th scope="row" class="text-right">Fungi and lichens</th>
-					<td class="text-right">670 000</td>
 					<td class="text-right">
-						<?PHP
+					<?PHP
 						$row=mysqli_fetch_assoc(mysqli_query($con,"SELECT SUM(total_count) AS total_rows
 						FROM (
 							SELECT COUNT(*) AS total_count
@@ -102,47 +102,92 @@ function percent($register,$total){
 						
 						"));
 						echo $row['total_rows'];
+						$total_species+=$row['total_rows'];
 						?>
+					</td>
+					<td class="text-right">
 						
+						0
 					
 					</td>
-					<td class="text-right"><?PHP echo percent($row['total_rows'],67000);?></td>
-					<td>32 367</td>
+					<td class="text-right">0<?PHP// echo percent($row['total_rows'],67000);?></td>
+					<td>0</td>
 				</tr>
 				<tr>
 					<th scope="row" class="text-right">Algae</th>
-					<td class="text-right">94 000</td>
-					<td class="text-right">40 136</td>
-					<td class="text-right">42 %</td>
-					<td>1 049</td>
+					<td class="text-right"><?PHP 
+					$row=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from algue "));
+					echo $row['count'];
+					$total_species+=$row['count'];
+					?></td>
+					<td class="text-right">0</td>
+					<td class="text-right">0</td>
+					<td>0</td>
 				</tr>
 				<tr>
 					<th scope="row" class="text-right">Bryophytes</th>
-					<td>720 000</td>
-					<td>318 496</td>
-					<td>44 %</td>
-					<td>20 926</td>
+					<td class="text-right"><?PHP 
+					$row=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as count from bryophytes "));
+					echo $row['count'];
+					$total_species+=$row['count'];
+					?></td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
 				</tr>
 				<tr>
 					<th scope="row" class="text-right">Vascular plants</th>
-					<td>2 950 000</td>
-					<td>1 405 662</td>
-					<td>47 %</td>
-					<td>56 427</td>
+					<td><?PHP
+					$row=mysqli_fetch_assoc(mysqli_query($con,"SELECT SUM(total_count) AS total_rows
+					FROM (
+						SELECT COUNT(*) AS total_count
+						FROM angiosperms
+						UNION ALL
+						SELECT COUNT(*) AS total_count
+						FROM gymnosperms
+						UNION ALL
+						SELECT COUNT(*) AS total_count
+						FROM pteridophytes
+					) AS subquery;
+					
+					"));
+					echo $row['total_rows'];
+					$total_species+=$row['total_rows'];
+					?></td>
+					<td>0</td>
+					<td>0</td>
+					<td>0</td>
 				</tr>
 				
 			
 				<tr>
 					<th scope="row" class="text-right">Total</th>
-					<th class="text-right">4 434 000</th>
-					<th class="text-right">2 284 291</th>
-					<th class="text-right">51 %</th>
-					<th class="text-right">110 769</th>
+					<th class="text-right"><?php echo $total_species;?></th>
+					<th class="text-right">0</th>
+					<th class="text-right">0</th>
+					<th class="text-right">0</th>
 				</tr>
 			</tbody>
 		</table>
 		</div>
-		<p class="text-muted text-right">Information updated 2023-01-11</p>
+		<?PHP
+		$date=mysqli_fetch_assoc(mysqli_query($con,"SELECT MAX(latest_date) AS latest_date
+		FROM (
+			SELECT MAX(upload_date) AS latest_date FROM algue
+			UNION ALL
+			SELECT MAX(upload_date) AS latest_date FROM fungi
+			UNION ALL
+			SELECT MAX(upload_date) AS latest_date FROM lichens
+			UNION ALL
+			SELECT MAX(upload_date) AS latest_date FROM gymnosperms
+			UNION ALL
+			SELECT MAX(upload_date) AS latest_date FROM angiosperms
+			UNION ALL
+			SELECT MAX(upload_date) AS latest_date FROM pteridophytes
+		) AS subquery;
+		"));
+		?>
+		<p class="text-muted text-right">Information updated <?PHP echo $date['latest_date'];?></p>
 	</div>
 </div> 
 
