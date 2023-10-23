@@ -27,8 +27,22 @@
 <body background="../../static/kryptos/img/bakgrund.cd326a1e709c.png">
     <div id="body-container" class="container">
         <header>
+            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
             <a href="https://www.ubuner.edu.pk/course/botany/" class="nrm"><img src="../../static/kryptos/img/Logo/logo.png" alt="NRM logotype" /></a>
             <h1><a href="../../index.html">University of Buner Herbarium Catalog</a></h1>
+            <style>
+                .search-btn {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 15%;
+                }
+                
+                .search-btn button i {
+                    font-size: 18px;
+                    font-weight: 600;
+                    transform: rotate(90deg);
+                }
+            </style>
         </header>
         <nav class="clearfix nav-items">
             <a class="menu visible-xs-block" href="#">Navigation <span class="pull-right">&#9776;</span></a>
@@ -42,7 +56,7 @@
 
         <!-- Searchfields -->
         <div class="well well-sm">
-            <form>
+            <form method="post">
 
 
                 <div id="id_filters" class="row ">
@@ -91,7 +105,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-md-3 col-xs-6">
+                            <div class="col-md-2 col-xs-6">
 
                                 <div class="form-group">
                                     <label for="id_basionym">Synonym</label>
@@ -104,7 +118,16 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-2 col-xs-6">
 
+                                <div class="form-group search-btn">
+
+                                    <button type="button" id="search-button" class="btn btn-primary "><i class="bx bx-search"></i></button>
+
+                                    <!-- No errors -->
+
+                                </div>
+                            </div>
 
 
 
@@ -119,7 +142,7 @@
             </form>
         </div>
 
-
+        <div id="result-container"></div>
 
 
 
@@ -159,11 +182,11 @@
     <script src="../../static/kryptos/js/kryptos.134b4c7884dd.js"></script>
 
 
-
+    <script src="script.js"></script>
 
 
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 </html>
