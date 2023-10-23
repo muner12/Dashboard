@@ -26,8 +26,8 @@ if (isset($_POST['query'])) {
     
     $result = $mysqli->query($sql);
     $tableHead="<table class='table table-hover table-striped table-condensed'>
-    <thead>
-    <tr style='background-color:black;color:white'>
+    <thead class='border border-white'>
+    <tr style='background-color:black;color:white;'>
     <th>species</th>
     <th>botanical</th>
     <th>synonyms</th>
@@ -49,15 +49,7 @@ if (isset($_POST['query'])) {
     $tableBody=" ";
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            // echo '<table class=" border result-item table table-hover table-condensed table-bordered">';
-            // echo "<tr>";
-            // echo "<td>".$row['source'] ."1</td>";
-            // echo '<td>' . $row['botanical']. '</td>';
-            
-            // echo '<td> ' . $row['synonyams'] . '</td>';
-            // echo '<td> ' . $row['family'].'</td>';
-            // echo "</tr>";
-            // echo '</table>';
+           
             $tableBody=$tableBody."<tr>
             <td>".$row['source']."</td>
             <td>".$row['botanical']."</td>
@@ -70,9 +62,9 @@ if (isset($_POST['query'])) {
             <td>".$row['collection_number']."</td>
             <td>".$row['year']."</td>
             <td>".$row['upload_date']."</td>
-            <td>".$row['description']."</td>
+            <td  class='description truncated '><div class='content'>".$row['description']."</div><button class='view-more-button btn btn-xs btn-success'>view more</button></td>
             
-            <td><img width='100' height='100' src='../../admin/upload/".$row['source']."/".$row['picture']."'></td>
+            <td class='image-column'><div class='image-zoom'><img width='70' height='50' src='../../admin/upload/".$row['source']."/".$row['picture']."'></div></td>
             </tr>";
             
         }

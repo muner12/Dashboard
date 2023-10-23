@@ -1,6 +1,34 @@
 // script.js
 
+function applyViewMoreFunctionality() {
+    const descriptionCells = $('.description');
+    descriptionCells.each(function() {
+        const content = $(this).find('.content');
+        const button = $(this).find('.view-more-button');
+        const truncatedText = content.text();
+
+        if (truncatedText.length > 30) {
+            content.text(truncatedText.substring(0, 30) + '...');
+
+            button.on('click', function() {
+                if (content.hasClass('expanded')) {
+                    content.text(truncatedText.substring(0, 30) + '...');
+                    content.removeClass('expanded');
+                    button.text('View More');
+                } else {
+                    content.text(truncatedText);
+                    content.addClass('expanded');
+                    button.text('View Less');
+                }
+            });
+        }
+    });
+}
+
+
 $(document).ready(function () {
+
+        
     const searchInput = $('#searchInput');
     const searchResults = $('#searchResults');
     const searchHistory = $('#searchHistory');
@@ -49,6 +77,7 @@ $(document).ready(function () {
                 success: function (data) {
                     
                     searchResults.html(data);
+                    applyViewMoreFunctionality();
                 }
             });
 

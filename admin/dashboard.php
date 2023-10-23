@@ -25,7 +25,7 @@ $total_lichens=mysqli_fetch_assoc(mysqli_query($con,"select count(botanical) as 
   <div class=" d-flex justify-content-between"><span>Total Species:</span><span class="badge badge-pill badge-primary"><?PHP echo $total_algee['count']?></span></div>
     
     <div class="d-flex mt-5">
-        <a class="btn btn-sm btn-primary" href="tables/algae.php">View More</a>
+        <a class="btn btn-sm btn-primary" href="tables/algue.php">View More</a>
     </div>
   </div>
 </div>

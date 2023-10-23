@@ -1,104 +1,140 @@
-
-
-
 <!DOCTYPE html>
+
+
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>University of Buner Herbarium Catalog-- Search genus/species</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128363340-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-128363340-1', { 'anonymize_ip': true });
-  </script>
-  <link rel="stylesheet" href="../../static/kryptos/css/bootstrap-3.4.1.min.eb2644c7646f.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>University of Buner Herbarium Catalog-- Search genus/species</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128363340-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  <link rel="stylesheet" type="text/css" href="../../static/kryptos/css/datatables.min.e91bc205a718.css" />
-  <style type="text/css">
-    .dataTables_info {
-      padding-top: 0px !important;
-    }
-  </style>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-128363340-1', {
+            'anonymize_ip': true
+        });
+    </script>
+    <link rel="stylesheet" href="../../static/kryptos/css/bootstrap-3.4.1.min.eb2644c7646f.css">
 
-  <link rel="stylesheet" href="../../static/kryptos/css/kryptos.96ff8b763cb6.css">
-  <link rel='shortcut icon' type='image/x-icon' href='../../static/kryptos/img/Icon/icon.jpg' />
+    <link rel="stylesheet" type="text/css" href="../../static/kryptos/css/datatables.min.e91bc205a718.css" />
+    <style type="text/css">
+        .dataTables_info {
+            padding-top: 0px !important;
+        }
+        /* Style for the image container */
+        
+        .image-column {
+            position: relative;
+        }
+        /* Style for the zoomed image */
+        
+        .image-zoom {
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        /* Apply zoom effect on hover */
+        
+        .image-column:hover .image-zoom {
+            position: relative;
+            transform: scale(3);
+            right: 100%;
+            /* Adjust the scale factor as needed */
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../static/kryptos/css/kryptos.96ff8b763cb6.css">
+    <link rel='shortcut icon' type='image/x-icon' href='../../static/kryptos/img/Icon/icon.jpg' />
 </head>
 
 <body background="../../static/kryptos/img/bakgrund.cd326a1e709c.png">
-  <div id="body-container" class="container">
-    <header>
-      <a href="https://www.ubuner.edu.pk/course/botany/" class="nrm"><img src="../../static/kryptos/img/Logo/logo.png"
-          alt="NRM logotype" /></a>
-      <h1><a href="../../index.html">University of Buner Herbarium Catalog</a></h1>
-    </header>
-    <nav class="clearfix nav-species">
-      <a class="menu visible-xs-block" href="#">Navigation <span class="pull-right">&#9776;</span></a>
-      <a class="link nav-start" href="../../index.html">Start</a>
-      <a class="link nav-items" href="../specimens/index.html">Search specimens</a>
-      <a class="link nav-species" href="index.html">Search genus/species</a>
-      <a class="link nav-howto" href="../../howto/index.html">How-to</a>
+    <div id="body-container" class="container">
+        <header>
+            <a href="https://www.ubuner.edu.pk/course/botany/" class="nrm"><img src="../../static/kryptos/img/Logo/logo.png" alt="NRM logotype" /></a>
+            <h1><a href="../../index.html">University of Buner Herbarium Catalog</a></h1>
+        </header>
+        <nav class="clearfix nav-species">
+            <a class="menu visible-xs-block" href="#">Navigation <span class="pull-right">&#9776;</span></a>
+            <a class="link nav-start" href="../../index.html">Start</a>
+            <a class="link nav-items" href="../specimens/index.html">Search specimens</a>
+            <a class="link nav-species" href="index.html">Search genus/species</a>
+            <a class="link nav-howto" href="../../howto/index.html">How-to</a>
 
-    </nav>
-
+        </nav>
 
 
-    <div class="well well-sm d-flex justify-content-center">
-      <form>
-        <div class="row">
-          <div class="col-md-9 col-sm-12">
-            <div class="form-group">
-              <input type="text" class="form-control" id="searchInput" placeholder="Search species...">
+
+        <div class="well well-lg">
+            <form>
+                <div class="row" style="margin-top: 15px;">
+                    <div class="col-md-6 col-sm-12 col-md-offset-3">
+                        <div class="form-group border border-danger w-100">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search species..." style="text-align: center;">
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+        <div class="">
+            <div class="table-responsive" id="searchResults"></div>
+        </div>
+
+        <div id="datatables_error" class="row collapse">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10">
+                <div class="alert alert-danger" role="alert">
+                    <strong>Error:</strong> There was an error while performing the search <span class="details"></span>
+                </div>
             </div>
-          </div>
-
         </div>
 
-      </form>
-
-    </div>
-    <div class="">
-      <div class="table-responsive" id="searchResults"></div>
-    </div>
-
-    <div id="datatables_error" class="row collapse">
-      <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10">
-        <div class="alert alert-danger" role="alert">
-          <strong>Error:</strong> There was an error while performing the search <span class="details"></span>
+        <div>
+            <div id="recommendedSpecies"></div>
         </div>
-      </div>
+
+
+
+        <footer>
+            <ul class="list-inline text-center">
+                <li><a href="mailto:herbarium@ubuner.edu.pk">herbarium@ubuner.edu.pk</a></li>
+            </ul>
+            <ul class="list-inline text-center">
+                <li><a href="contact/contactabout">Contact</a></li>
+                <li><a href="herbarium/visittoherbarirum.html/">Visit the herbarium </a></li>
+                <li>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                    <!-- Add font awesome icons -->
+                    <li>
+                        <a href="https://www.facebook.com/rahmanullah0966?mibextid=ZbWKwL" target="_blank" class="fa fa-facebook"></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/RahmanU01226335/status" class="fa fa-twitter"></a>
+                    </li>
+                    <li>
+                        <a href="#" class="fa fa-google"></a>
+                    </li>
+                    <li>
+                        <a href="#" class="fa fa-linkedin"></a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/rahmanullah0966?igshid=NGVhN2U2NjQ0Yg==" target="_blank" class="fa fa-instagram"></a>
+                    </li><br>
+                    <span style="color: white;"> © 2023 UOB Herbarium Catalog. All Rights Reserved</span>
+            </ul>
+        </footer>
     </div>
-
-
-
-
-    <footer>
-      <ul class="list-inline text-center">
-        <li><a href="mailto:herbarium@ubuner.edu.pk">herbarium@ubuner.edu.pk</a></li>
-      </ul>
-      <ul class="list-inline text-center">
-        <li><a href="contact/contactabout">Contact</a></li>
-        <li><a href="herbarium/visittoherbarirum.html/">Visit the herbarium </a></li>
-        <li><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <!-- Add font awesome icons -->
-        <li><a href="https://www.facebook.com/rahmanullah0966?mibextid=ZbWKwL" target="_blank" class="fa fa-facebook"></a></li>
-        <li><a href="https://twitter.com/RahmanU01226335/status" class="fa fa-twitter"></a></li>
-        <li><a href="#" class="fa fa-google"></a></li>
-        <li><a href="#" class="fa fa-linkedin"></a></li>
-        <li><a href= "https://instagram.com/rahmanullah0966?igshid=NGVhN2U2NjQ0Yg==" target="_blank" class="fa fa-instagram"></a></li><br>
-        <span style="color: white;"> © 2023 UOB Herbarium Catalog. All Rights Reserved</span>
-      </ul>
-    </footer>
-  </div>
-  <script src="../../static/kryptos/js/jquery-3.6.0.min.8fb8fee4fcc3.js"></script>
-  <script src="../../static/kryptos/js/bootstrap-3.4.1.min.2f34b630ffe3.js"></script>
-  <script src="script.js"></script>
+    <script src="../../static/kryptos/js/jquery-3.6.0.min.8fb8fee4fcc3.js"></script>
+    <script src="../../static/kryptos/js/bootstrap-3.4.1.min.2f34b630ffe3.js"></script>
+    <script src="script.js"></script>
 
 
 
