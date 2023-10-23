@@ -152,8 +152,7 @@ function percent($register,$total){
     		<li><a href="mailto:herbarium@ubuner.edu.pk">herbarium@ubuner.edu.pk</a></li>
     	</ul>          
         <ul class="list-inline text-center">          
-          <li><a href="Contact/index.html">Contact</a></li>
-          <li><a href="herbarium/visittoherbarirum.html/">Visit the herbarium </a></li>
+          
           <li><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
           <!-- Add font awesome icons -->
