@@ -42,7 +42,7 @@ function percent($register,$total){
     </header>
     <nav class="clearfix nav-start">
     	<a class="menu visible-xs-block" href="#">Navigation <span class="pull-right">&#9776;</span></a>
-        <a class="link nav-start" href="index.html">Start</a>
+        <a class="link nav-start" href="index.php">Start</a>
   		<a class="link nav-items" href="search/specimens/index.html">Search specimens</a>
   		<a class="link nav-species" href="search/species/index.html">Search genus/species</a>
   		<a class="link nav-howto" href="howto/index.html">How-to</a>
