@@ -90,7 +90,7 @@ if(isset($_POST['update'])){
         $picture_name=$_FILES['Picture']['name'];
         
         $picture_tempname=$_FILES['Picture']['tmp_name'];
-        move_uploaded_file($picture_tempname,"upload/Angiosperm/$picture_name");
+        move_uploaded_file($picture_tempname,"upload/Angiosperms/$picture_name");
     }else{
         $picture_name=$db_picture;
        
@@ -253,7 +253,7 @@ if($result==1){
 
                     <?php
                     if(isset($_GET['type']) && $_GET['type']=='update'){
-                        echo "<img width='100px' height='60px' src='upload/Angiosperm/{$fetch_one_row['picture']}'>";
+                        echo "<img width='100px' height='60px' src='upload/Angiosperms/{$fetch_one_row['picture']}'>";
                     
                     ?>
                     <span class="text-danger" style="font-size:10px;">Note:If You not select Image, by default this

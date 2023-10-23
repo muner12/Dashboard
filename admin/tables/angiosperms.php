@@ -16,7 +16,7 @@ if(isset($_GET['type']) && $_GET['type']=='delete'){
 ?>
 
 
-<?php showTable("angiosperms",$con,$ROOT,"angiosperm")?>
+<?php showTable("angiosperms",$con,$ROOT,"angiosperms")?>
 
 <?php
 include("../footer.php");
