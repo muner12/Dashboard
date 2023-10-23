@@ -1,3 +1,12 @@
+<?php
+$con=mysqli_connect("localhost","root","","botony");
+function percent($register,$total){
+
+	$percent=($register/$total)*100;
+
+	return round($percent,2).'%';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -80,8 +89,24 @@
 				<tr>
 					<th scope="row" class="text-right">Fungi and lichens</th>
 					<td class="text-right">670 000</td>
-					<td class="text-right">519 997</td>
-					<td class="text-right">77 %</td>
+					<td class="text-right">
+						<?PHP
+						$row=mysqli_fetch_assoc(mysqli_query($con,"SELECT SUM(total_count) AS total_rows
+						FROM (
+							SELECT COUNT(*) AS total_count
+							FROM fungi
+							UNION ALL
+							SELECT COUNT(*) AS total_count
+							FROM lichens
+						) AS subquery;
+						
+						"));
+						echo $row['total_rows'];
+						?>
+						
+					
+					</td>
+					<td class="text-right"><?PHP echo percent($row['total_rows'],67000);?></td>
 					<td>32 367</td>
 				</tr>
 				<tr>
