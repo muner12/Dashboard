@@ -25,7 +25,17 @@ if(isset($_POST['insert'])){
    
     $picture_name=$_FILES['Picture']['name'];
     $picture_tempname=$_FILES['Picture']['tmp_name'];
-
+    
+        
+    
+        // Check if the botanical name contains numeric values
+        if (preg_match('/\d/', $botincal)) {
+            // Display an error message
+            $msg = "Botanical name should not contain numeric values.";
+            echo $msg;
+        } else {
+            
+    
     $check_recored=mysqli_query($con,"select * from algue where botanical='$botincal'");
     if( mysqli_num_rows($check_recored)>0){
         echo '<script>alert("This Recored exist in the Database!!!")</script>';
@@ -43,6 +53,7 @@ if($result==1){
     echo '<script>alert("1 recored inserted Successfully!")</script>';
 }
     }
+}
 }
 
 //end insert
@@ -149,8 +160,8 @@ if($result==1){
                 <?PHP }?>
                 </h3>
         </div>
-        <form method="post" enctype="multipart/form-data">
-
+        <form method="post" enctype="multipart/form-data" id="insertForm">
+        <span id="numeric-error" class="text-danger"></span>
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-5">
 
@@ -158,33 +169,36 @@ if($result==1){
                         <label for="name">Botanical Name</label>
                         <input value="<?PHP if(isset($fetch_one_row['botanical'])) echo $fetch_one_row['botanical'];?>"
                             value="<?PHP if(isset($fetch_one_row['botanical'])) echo $fetch_one_row['botanical'];?>"
-                            type="text" class="form-control" id="name" name="botanical" placeholder="botanical Name "
+                            type="text" class="form-control disallow-numeric" id="name" name="botanical" placeholder="botanical Name "
                             required>
+                            <span id="numeric-error" class="text-danger"></span>
+
+
                     </div>
                     <div class="form-group">
                         <label for="name">Synonym</label>
                         <input value="<?PHP if(isset($fetch_one_row['synonyams'])) echo $fetch_one_row['synonyams'];?>"
-                            type="text" class="form-control" id="name" name="synonayms" placeholder="Synonym" required>
+                            type="text" class="form-control disallow-numeric" id="name" name="synonayms" placeholder="Synonym" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Family</label>
                         <input value="<?PHP if(isset($fetch_one_row['family'])) echo $fetch_one_row['family'];?>"
-                            type="text" class="form-control" id="name" name="family" placeholder="Family" required>
+                            type="text" class="form-control disallow-numeric" id="name" name="family" placeholder="Family" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Group</label>
                         <input value="<?PHP if(isset($fetch_one_row['group'])) echo $fetch_one_row['group'];?>"
-                            type="text" class="form-control" id="name" name="group" placeholder="Group" required>
+                            type="text" class="form-control disallow-numeric" id="name" name="group" placeholder="Group" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Country</label>
                         <input value="<?PHP if(isset($fetch_one_row['country'])) echo $fetch_one_row['country'];?>"
-                            type="text" class="form-control" id="name" name="contry" placeholder="Country" required>
+                            type="text" class="form-control disallow-numeric" id="name" name="contry" placeholder="Country" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Province</label>
                         <input value="<?PHP if(isset($fetch_one_row['province'])) echo $fetch_one_row['province'];?>"
-                            type="text" class="form-control" id="name" name="province" placeholder="Province" required>
+                            type="text" class="form-control disallow-numeric" id="name" name="province" placeholder="Province" required>
                     </div>
 
 
@@ -195,20 +209,20 @@ if($result==1){
                     <div class="form-group">
                         <label for="name">Collector</label>
                         <input value="<?PHP if(isset($fetch_one_row['collector'])) echo $fetch_one_row['collector'];?>"
-                            type="text" class="form-control" id="name" name="Collector" placeholder="Collector"
+                            type="text" class="form-control disallow-numeric" id="name" name="Collector" placeholder="Collector"
                             required>
                     </div>
                     <div class="form-group">
                         <label for="name">Collection_Number</label>
                         <input
                             value="<?PHP if(isset($fetch_one_row['collection_number'])) echo $fetch_one_row['collection_number'];?>"
-                            type="text" class="form-control" id="name" name="Collection_Number"
+                            type="number" class="form-control" id="name" name="Collection_Number"
                             placeholder="Collection_Number" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Year</label>
                         <input value="<?PHP if(isset($fetch_one_row['year'])) echo $fetch_one_row['year'];?>"
-                            type="text" class="form-control" id="Name" name="Year" placeholder="Year" required>
+                            type="number" class="form-control" id="Name" name="Year" placeholder="Year" required>
                     </div>
 
                     <div class="form-group">
@@ -222,7 +236,7 @@ if($result==1){
                         <label for="name">Description</label>
                         <input
                             value="<?PHP if(isset($fetch_one_row['description'])) echo $fetch_one_row['description'];?>"
-                            type="text" class="form-control" id="desc" name="Description" placeholder="Description"
+                            type="text" class="form-control disallow-numeric" id="desc" name="Description" placeholder="Description"
                             required>
                     </div>
                     <div class="form-group">
@@ -243,9 +257,9 @@ if($result==1){
                 <div class="col-lg-5">
                     <div class="form-group">
                         <?PHP if(isset($_GET['type']) && $_GET['type']=='update'){?>
-                        <input type="submit" class="btn btn-success btn-block" id="name" name="update" value="update">
+                        <input type="submit" class="btn btn-success btn-block submit-btn" id="name" name="update" value="update">
                         <?PHP } else { ?>
-                        <input type="submit" class="btn btn-success btn-block" id="name" name="insert" value="insert">
+                        <input type="submit" class="btn btn-success btn-block submit-btn" id="name" name="insert" value="insert">
                         <?php }?>
                     </div>
 
@@ -266,7 +280,26 @@ if($result==1){
         </form>
     </div>
 </div>
+<script>
+  $("#insertForm").submit(function(event){
+    var hasNumeric = false;
+        $('.disallow-numeric').each(function() {
+            var inputValue = $(this).val();
+            if (/\d/.test(inputValue)) {
+                hasNumeric = true;
+                $('#numeric-error').text('Numeric values are not allowed in text fields.');
+                event.preventDefault(); // Prevent form submission
+                return false; // Exit the loop
+            }
+        });
 
+        if (!hasNumeric) {
+            $('#numeric-error').text(''); // Clear any previous error message
+        }
+  })
+</script>
+</>
 <?php
     
     require("footer.php")?>
+  
